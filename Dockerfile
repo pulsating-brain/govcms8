@@ -69,24 +69,6 @@ RUN composer create-project \
     --no-interaction \
     govcms/govcms8-project demomarkfullernetau 
 
-RUN composer require \
-    --prefer-stable \
-    --prefer-dist \
-      drupal/clamav:~1.0 \
-      drupal/ctools:~3.0 \
-      drupal/diff:~1.0-rc1 \
-      #drupal/fontawesome:~1.2 \
-      drupal/group:~1.0-rc1 \
-      #drupal/icon:~1.0 \
-      drupal/pathauto:~1.0 \
-      drupal/token:~1.0 \
-      #drupal/viewfield:~3.0-alpha2 \
-      drupal/flag:~4.0-alpha2 \
-      drupal/mimemail:~1.0-alpha2 \
-      drupal/simplenews:~1.0-alpha3 \
-      drupal/formtips:~1.0 \
-   && composer clear-cache
-
 COPY ./config /var/www/config/
 COPY ./entrypoint.sh /usr/local/bin/
 # TODO Licensing ?? MIT
