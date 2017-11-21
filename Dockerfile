@@ -28,13 +28,15 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
   && docker-php-ext-install bz2 gd mbstring pcntl pdo_mysql zip
 
+RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir=/usr/local/bin --filename=composer"
+RUN chmod a+x /usr/local/bin/composer
+
 RUN git clone https://github.com/govCMS/govCMS8.git /var/www/govcms
 WORKDIR /var/www/govcms
 RUN mkdir -p /var/www/govcms/docroot
 ADD ./build.properties build/phing/build.properties
 RUN rmdir /var/www/html/ && ln -sfn /var/www/govcms/docroot /var/www/html
-RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir=/usr/local/bin --filename=composer"
-RUN chmod a+x /usr/local/bin/composer
+
 
 USER www-data
 RUN /usr/local/bin/composer install --prefer-dist --working-dir=build
