@@ -67,8 +67,7 @@ RUN composer create-project \
     --no-dev \
     --no-progress \
     --no-interaction \
-    govcms/govcms8-project demomarkfullernetau \
-    /var/www
+    govcms/govcms8-project demomarkfullernetau 
 
 RUN composer require \
     --prefer-stable \
