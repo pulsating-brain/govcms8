@@ -36,15 +36,7 @@ RUN chown www-data:www-data /var/www/govcms
 USER www-data
 RUN composer create-project --stability dev --prefer-dist govcms/govcms8-project /var/www/govcms
 
-# RUN mkdir -p /var/www/govcms/docroot
-# ADD ./build.properties build/phing/build.properties
-# RUN rmdir /var/www/html/ && ln -sfn /var/www/govcms/docroot /var/www/html
-
-
-
-# RUN /usr/local/bin/composer install --prefer-dist --working-dir=build
-# RUN build/bin/phing -f build/phing/build.xml make:local
-
 # Allow the settings.php file and files directory to be created.
 # RUN cp /var/www/govcms/docroot/sites/default/default.settings.php /var/www/govcms/docroot/sites/default/settings.php
 # RUN chmod -R a+w /var/www/govcms/docroot/sites/default
+CMD ["apache2-foreground"]
