@@ -8,68 +8,38 @@
 
 # from https://www.drupal.org/requirements/php#drupalversions
 # accepts connections on port 9000
-FROM php:7.1-fpm-alpine
+FROM php:7.1-apache
 
-RUN set -ex \
-	&& apk update \
-	&& apk add --virtual .build-deps \
-	# see http://blog.zot24.com/tips-tricks-with-alpine-docker
-		coreutils \
-		freetype-dev \
-		libjpeg-turbo-dev \
-		libpng-dev \
-		postgresql-dev \
-		# postgresql-dev is needed for https://bugs.alpinelinux.org/issues/3642
-	&& docker-php-ext-configure gd \
-		--with-freetype-dir=/usr/include/ \
-		--with-jpeg-dir=/usr/include/ \
-		--with-png-dir=/usr/include/ \
-	&& docker-php-ext-install -j "$(nproc)" gd mbstring opcache pdo pdo_mysql pdo_pgsql zip \
-	&& runDeps="$( \
-		scanelf --needed --nobanner --recursive \
-			/usr/local/lib/php/extensions \
-			| awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
-			| sort -u \
-			| xargs -r apk info --installed \
-			| sort -u \
-	)" \
-	&& apk add $runDeps git \
 
-	# Delete build dependencies to minimise image size
-	&& apk del .build-deps
+ENV COMPOSER_PROCESS_TIMEOUT 900
 
-# set recommended PHP.ini settings; see https://secure.php.net/manual/en/opcache.installation.php
-RUN { \
-		echo 'opcache.memory_consumption=128'; \
-		echo 'opcache.interned_strings_buffer=8'; \
-		echo 'opcache.max_accelerated_files=4000'; \
-		echo 'opcache.revalidate_freq=60'; \
-		echo 'opcache.fast_shutdown=1'; \
-		echo 'opcache.enable_cli=1'; \
-	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
+RUN a2enmod rewrite
 
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- \
-    --install-dir=/usr/local/bin \
-    --filename=composer \
-    && chmod +x /usr/local/bin/composer
+RUN apt-get update && apt-get install -y \
+  libpng12-dev \
+  libjpeg-dev \
+  libpq-dev \
+  libbz2-dev \
+  unzip \
+  git-core \
+  telnet \
+  mysql-client \
+  && rm -rf /var/lib/apt/lists/* \
+  && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
+  && docker-php-ext-install bz2 gd mbstring pcntl pdo_mysql zip
 
-WORKDIR /var/www
-RUN chmod -R 777 /var/www \
-    && rm -r *
+RUN git clone https://github.com/govCMS/govCMS8.git /var/www/govcms
 
-USER www-data
+WORKDIR /var/www/govcms
+RUN mkdir -p /var/www/govcms/docroot
+ADD ./build.properties build/phing/build.properties
+RUN rmdir /var/www/html/ && ln -sfn /var/www/govcms/docroot /var/www/html
 
-# Install Drupal
-RUN php -d memory_limit=-1 /usr/bin/composer create-project \
-    --stability dev \
-    --prefer-dist \
-    --no-dev \
-    --no-progress \
-    --no-interaction \
-    govcms/govcms8-project demomarkfullernetau 
+RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir=/usr/local/bin --filename=composer"
+RUN chmod a+x /usr/local/bin/composer
+RUN /usr/local/bin/composer install --prefer-dist --working-dir=build
+RUN build/bin/phing -f build/phing/build.xml make:local
 
-COPY ./config /var/www/config/
-COPY ./entrypoint.sh /usr/local/bin/
-# TODO Licensing ?? MIT
-CMD ["php-fpm"]
+# Allow the settings.php file and files directory to be created.
+RUN cp /var/www/govcms/docroot/sites/default/default.settings.php /var/www/govcms/docroot/sites/default/settings.php
+RUN chmod -R a+w /var/www/govcms/docroot/sites/default
