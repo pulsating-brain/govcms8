@@ -32,6 +32,7 @@ RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir
 RUN chmod a+x /usr/local/bin/composer
 
 WORKDIR /var/www/govcms
+RUN chown www-data:www-data /var/www/govcms
 USER www-data
 RUN composer create-project --stability dev --prefer-dist govcms/govcms8-project /var/www/govcms
 
