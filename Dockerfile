@@ -32,14 +32,15 @@ RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir
 RUN chmod a+x /usr/local/bin/composer
 
 WORKDIR /var/www/govcms
-RUN git clone https://github.com/govCMS/govCMS8.git /var/www/govcms
-
-RUN mkdir -p /var/www/govcms/docroot
-ADD ./build.properties build/phing/build.properties
-RUN rmdir /var/www/html/ && ln -sfn /var/www/govcms/docroot /var/www/html
-
-
 USER www-data
+RUN composer create-project --stability dev --prefer-dist govcms/govcms8-project /var/www/govcms
+
+# RUN mkdir -p /var/www/govcms/docroot
+# ADD ./build.properties build/phing/build.properties
+# RUN rmdir /var/www/html/ && ln -sfn /var/www/govcms/docroot /var/www/html
+
+
+
 # RUN /usr/local/bin/composer install --prefer-dist --working-dir=build
 # RUN build/bin/phing -f build/phing/build.xml make:local
 
