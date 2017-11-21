@@ -30,6 +30,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/govCMS/govCMS8.git /var/www/govcms
 
+USER www-data
 WORKDIR /var/www/govcms
 RUN mkdir -p /var/www/govcms/docroot
 ADD ./build.properties build/phing/build.properties
