@@ -33,9 +33,10 @@ WORKDIR /var/www/govcms
 RUN mkdir -p /var/www/govcms/docroot
 ADD ./build.properties build/phing/build.properties
 RUN rmdir /var/www/html/ && ln -sfn /var/www/govcms/docroot /var/www/html
-USER www-data
 RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir=/usr/local/bin --filename=composer"
 RUN chmod a+x /usr/local/bin/composer
+
+USER www-data
 RUN /usr/local/bin/composer install --prefer-dist --working-dir=build
 RUN build/bin/phing -f build/phing/build.xml make:local
 
