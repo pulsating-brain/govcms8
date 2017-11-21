@@ -61,7 +61,7 @@ RUN chmod -R 777 /var/www \
 USER www-data
 
 # Install Drupal
-RUN composer create-project \
+RUN php -d memory_limit=-1 /usr/bin/composer create-project \
     --stability dev \
     --prefer-dist \
     --no-dev \
