@@ -39,6 +39,11 @@ RUN composer create-project --stability dev --prefer-dist govcms/govcms8-project
 RUN cp /var/www/html/docroot/sites/default/default.settings.php /var/www/html/docroot/sites/default/settings.php
 RUN chmod -R a+w /var/www/html/docroot/sites/default
 
+RUN composer require \
+    --prefer-stable \
+    --prefer-dist \
+    drupal/geocoder
+    
 EXPOSE 80
 EXPOSE 443
 
