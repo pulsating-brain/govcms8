@@ -44,7 +44,8 @@ RUN composer require \
     --prefer-dist \
     drupal/geocoder \
     drupal/geolocation \
-    drupal/address
+    drupal/address \
+    drupal/group
     
 EXPOSE 80
 EXPOSE 443
