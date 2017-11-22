@@ -38,4 +38,4 @@ RUN composer create-project --stability dev --prefer-dist govcms/govcms8-project
 # Allow the settings.php file and files directory to be created.
 # RUN cp /var/www/govcms/docroot/sites/default/default.settings.php /var/www/govcms/docroot/sites/default/settings.php
 # RUN chmod -R a+w /var/www/govcms/docroot/sites/default
-CMD ["/usr/sbin/apache2","-D","FOREGROUND"]
+CMD ["service","apache2","start","-D","FOREGROUND"]
