@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y \
 RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir=/usr/local/bin --filename=composer"
 RUN chmod a+x /usr/local/bin/composer
 
-WORKDIR /var/www/html
+WORKDIR /var/www/html/docroot
 
 RUN composer create-project --stability dev --prefer-dist govcms/govcms8-project /var/www/html
 
@@ -42,7 +42,8 @@ RUN chmod -R a+w /var/www/html/docroot/sites/default
 RUN composer require \
     --prefer-stable \
     --prefer-dist \
-    drupal/geocoder
+    drupal/geocoder \
+    drupal/address
     
 EXPOSE 80
 EXPOSE 443
