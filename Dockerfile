@@ -43,6 +43,7 @@ RUN composer require \
     --prefer-stable \
     --prefer-dist \
     drupal/geocoder \
+    drupal/geolocation \
     drupal/address
     
 EXPOSE 80
