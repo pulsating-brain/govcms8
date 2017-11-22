@@ -44,9 +44,7 @@ RUN composer require \
     --prefer-dist \
     drupal/geocoder \
     drupal/geolocation \
-    drupal/address \
-    drupal/leaflet \
-    drupal/leaflet_markercluster
+    drupal/address
     
 EXPOSE 80
 EXPOSE 443
