@@ -10,7 +10,7 @@
 # accepts connections on port 9000
 FROM php:7.1-apache
 
-
+ENV APACHE_DOCUMENT_ROOT /var/www/html/docroot
 ENV COMPOSER_PROCESS_TIMEOUT 900
 
 RUN a2enmod rewrite
@@ -36,8 +36,9 @@ WORKDIR /var/www/html
 RUN composer create-project --stability dev --prefer-dist govcms/govcms8-project /var/www/html
 
 # Allow the settings.php file and files directory to be created.
-# RUN cp /var/www/govcms/docroot/sites/default/default.settings.php /var/www/govcms/docroot/sites/default/settings.php
-# RUN chmod -R a+w /var/www/govcms/docroot/sites/default
+RUN cp /var/www/html/docroot/sites/default/default.settings.php /var/www/html/docroot/sites/default/settings.php
+RUN chmod -R a+w /var/www/html/docroot/sites/default
+
 EXPOSE 80
 EXPOSE 443
 
