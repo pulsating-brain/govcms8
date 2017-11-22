@@ -32,10 +32,10 @@ RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir
 RUN chmod a+x /usr/local/bin/composer
 
 WORKDIR /var/www/html
-USER www-data
+
 RUN composer create-project --stability dev --prefer-dist govcms/govcms8-project /var/www/html
 
 # Allow the settings.php file and files directory to be created.
 # RUN cp /var/www/govcms/docroot/sites/default/default.settings.php /var/www/govcms/docroot/sites/default/settings.php
 # RUN chmod -R a+w /var/www/govcms/docroot/sites/default
-CMD ["sudo","/usr/sbin/apache2","-D","FOREGROUND"]
+CMD ["/usr/sbin/apache2","-D","FOREGROUND"]
