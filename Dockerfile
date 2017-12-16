@@ -47,6 +47,7 @@ RUN chmod -R a+w /var/www/html/sites/default
 RUN composer require \
     --prefer-stable \
     --prefer-dist \
+    --no-progress \
     drupal/geocoder \
     drupal/geolocation \
     drupal/address \
