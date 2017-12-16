@@ -36,8 +36,8 @@ WORKDIR /var/www/html
 RUN composer create-project --stability dev --prefer-dist govcms/govcms8-project /var/www/html
 
 # Allow the settings.php file and files directory to be created.
-RUN cp /var/www/html/docroot/sites/default/default.settings.php /var/www/html/docroot/sites/default/settings.php
-RUN chmod -R a+w /var/www/html/docroot/sites/default
+RUN cp /var/www/html/sites/default/default.settings.php /var/www/html/sites/default/settings.php
+RUN chmod -R a+w /var/www/html/sites/default
 
 RUN composer require \
     --prefer-stable \
