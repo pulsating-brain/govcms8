@@ -41,7 +41,7 @@ RUN composer create-project \
     /var/www/html
 
 # Allow the settings.php file and files directory to be created.
-RUN cp /var/www/html/sites/default/default.settings.php /var/www/html/sites/default/settings.php
+RUN cp /var/www/html/docroot/sites/default/default.settings.php /var/www/html/docroot/sites/default/settings.php
 RUN chmod -R a+w /var/www/html/sites/default
 
 RUN composer require \
