@@ -10,7 +10,7 @@
 # accepts connections on port 9000
 FROM php:7.1-apache
 
-ENV APACHE_DOCUMENT_ROOT /var/www/html
+ENV APACHE_DOCUMENT_ROOT /var/www/html/docroot
 ENV COMPOSER_PROCESS_TIMEOUT 900
 
 RUN a2enmod rewrite
