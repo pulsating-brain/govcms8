@@ -50,6 +50,7 @@ RUN composer require \
     --prefer-dist \
     --no-progress \
     drupal/geocoder:2.x-dev \
+    drupal/geophp \
     drupal/geolocation \
     drupal/address \
     drupal/group \
