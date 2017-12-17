@@ -52,7 +52,7 @@ RUN composer require \
     drupal/geocoder \
     drupal/geolocation \
     drupal/address \
-    drupal/group
+    drupal/group \
     drupal/geofield
     
 EXPOSE 80
