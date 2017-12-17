@@ -53,6 +53,7 @@ RUN composer require \
     drupal/geolocation \
     drupal/address \
     drupal/group
+    drupal/geofield
     
 EXPOSE 80
 EXPOSE 443
