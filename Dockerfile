@@ -49,7 +49,7 @@ RUN composer require \
     --prefer-stable \
     --prefer-dist \
     --no-progress \
-    drupal/geocoder:2.x-dev \ #https://www.drupal.org/project/geolocation/issues/2857069
+    drupal/geocoder:2.x-dev \
     drupal/geolocation \
     drupal/address \
     drupal/group \
