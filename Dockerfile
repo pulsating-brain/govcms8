@@ -10,12 +10,9 @@
 # accepts connections on port 9000
 FROM php:7.1-apache
 
-COPY config/php.ini /usr/local/etc/php
-
 ENV APACHE_DOCUMENT_ROOT /var/www/html/docroot
 ENV COMPOSER_PROCESS_TIMEOUT 900
 ENV TIMEZONE Australia/Sydney
-ENV PHPEXTRA_CONFIGURE_ARGS --enable-opcache --enable-opcache-file
 
 RUN a2enmod rewrite
 
@@ -30,7 +27,7 @@ RUN apt-get update && apt-get install -y \
   mysql-client \
   && rm -rf /var/lib/apt/lists/* \
   && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-  && docker-php-ext-install bz2 gd mbstring pcntl pdo_mysql zip
+  && docker-php-ext-install bz2 gd mbstring opcache pcntl pdo_mysql zip
 
 RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir=/usr/local/bin --filename=composer"
 RUN chmod a+x /usr/local/bin/composer
