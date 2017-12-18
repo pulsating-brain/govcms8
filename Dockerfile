@@ -55,7 +55,7 @@ RUN composer require \
     drupal/address \
     drupal/group \
     drupal/geofield \
-    drupal/geofield_map
+    drupal/geofield_map:^1.24
     
 EXPOSE 80
 
