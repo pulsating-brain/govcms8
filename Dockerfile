@@ -42,7 +42,8 @@ RUN composer create-project \
     /var/www/html
 
 # Allow the settings.php file and files directory to be created.
-COPY ./config/settings.php /var/www/html/docroot/sites/default/settings.php
+RUN cp /var/www/html/docroot/sites/default/default.settings.php /var/www/html/docroot/sites/default/settings.php
+RUN chmod -R a+w /var/www/html/docroot/sites/default
 
 RUN composer require \
     --prefer-stable \
