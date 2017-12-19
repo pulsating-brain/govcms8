@@ -49,8 +49,8 @@ RUN composer require \
     --prefer-stable \
     --prefer-dist \
     --no-progress \
-    # geocoder alpha5 is broken. Fixed in dev a few months ago now but no alpha6 release
-    drupal/geocoder:2.x-dev \
+    # geocoder alpha6 released today 18/12/17
+    drupal/geocoder:2.x-alpha6 \
     drupal/geophp \
     drupal/geolocation \
     drupal/address \
