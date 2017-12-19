@@ -50,12 +50,11 @@ RUN composer require \
     --prefer-dist \
     --no-progress \
     --optimize-autoloader \
-    drupal/console \
     # geocoder alpha6 released today 18/12/17
     drupal/geocoder:2.0.0-alpha6 \
-    drupal/address \
+    drupal/address:1.x-dev \
     drupal/group \
-    drupal/geofield \
+    drupal/geofield:1.x-dev\
     drupal/geofield_map:^1.24 \
     drupal/realname
     
