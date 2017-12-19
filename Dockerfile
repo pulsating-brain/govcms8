@@ -49,10 +49,10 @@ RUN composer require \
     --prefer-stable \
     --prefer-dist \
     --no-progress \
+    --optimize-autoloader
+    drupal/console \
     # geocoder alpha6 released today 18/12/17
     drupal/geocoder:2.0.0-alpha6 \
-    drupal/geolocation \
-    drupal/service_container \
     drupal/address \
     drupal/group \
     drupal/geofield \
