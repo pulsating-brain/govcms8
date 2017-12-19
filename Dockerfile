@@ -50,6 +50,8 @@ RUN composer require \
     --prefer-dist \
     --no-progress \
     # geocoder alpha6 released today 18/12/17
+    drupal/service_container \
+    drupal/composer_manager \
     drupal/geocoder:2.0.0-alpha6 \
     drupal/geophp \
     drupal/geolocation \
