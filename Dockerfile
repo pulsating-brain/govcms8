@@ -42,13 +42,13 @@ RUN composer create-project \
     /var/www/html
 
 # Allow the settings.php file and files directory to be created.
-RUN cp /var/www/html/docroot/sites/default/default.settings.php /var/www/html/docroot/sites/default/settings.php
-RUN chmod -R a+w /var/www/html/docroot/sites/default
+COPY ./config/settings.php /var/www/html/docroot/sites/default/settings.php
 
 RUN composer require \
     --prefer-stable \
     --prefer-dist \
     --no-progress \
+    # geocoder alpha5 is broken. Fixed in dev a few months ago now but no alpha6 release
     drupal/geocoder:2.x-dev \
     drupal/geophp \
     drupal/geolocation \
