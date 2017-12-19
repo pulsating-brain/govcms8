@@ -51,7 +51,7 @@ RUN composer require \
     --no-progress \
     # geocoder alpha6 released today 18/12/17
     drupal/geocoder:2.0.0-alpha6 \
-    drupal/geophp:1.x-dev \
+    phayes/geophp \
     drupal/geolocation \
     drupal/address \
     drupal/group \
