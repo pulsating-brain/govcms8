@@ -51,14 +51,13 @@ RUN composer require \
     --no-progress \
     --optimize-autoloader \
     # geocoder alpha6 released today 18/12/17
-    drupal/geocoder:2.0.0-alpha7 \
+    drupal/geocoder:2.x-dev \
     drupal/address \
     drupal/group \
-    drupal/geofield\
+    drupal/geofield \
     drupal/geofield_map:^1.24 \
-    drupal/realname
-    
-COPY ./patches/geocoder/geocoder_field.module /var/www/html/docroot/modules/geocoder/modules/geocoder_field/
+    drupal/realname \
+    drupal/google_map_field
 
 EXPOSE 80
 
