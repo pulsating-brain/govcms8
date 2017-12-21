@@ -51,7 +51,7 @@ RUN composer require \
     --no-progress \
     --optimize-autoloader \
     # geocoder alpha6 released today 18/12/17
-    drupal/geocoder:2.0.0-alpha6 \
+    drupal/geocoder:2.0.0-alpha7 \
     drupal/address:1.x-dev \
     drupal/group \
     drupal/geofield:1.x-dev\
