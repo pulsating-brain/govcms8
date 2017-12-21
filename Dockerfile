@@ -52,12 +52,14 @@ RUN composer require \
     --optimize-autoloader \
     # geocoder alpha6 released today 18/12/17
     drupal/geocoder:2.0.0-alpha7 \
-    drupal/address:1.x-dev \
+    drupal/address \
     drupal/group \
-    drupal/geofield:1.x-dev\
+    drupal/geofield\
     drupal/geofield_map:^1.24 \
     drupal/realname
     
+COPY ./patches/geocoder/geocoder_field.module /var/www/html/docroot/modules/geocoder/modules/geocoder_field/
+
 EXPOSE 80
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
