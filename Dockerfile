@@ -56,8 +56,7 @@ RUN composer require \
     drupal/group \
     drupal/geofield:1.x-dev\
     drupal/geofield_map:^1.24 \
-    drupal/realname \
-    drupal/google_map_field
+    drupal/realname
     
 EXPOSE 80
 
