@@ -50,14 +50,19 @@ RUN composer require \
     --prefer-dist \
     --no-progress \
     --optimize-autoloader \
-    # geocoder alpha6 released today 18/12/17
+    # geocoder alpha6 released 18/12/17, alpha7 released on 20/12/17, commit made to dev on 22/12/17 which fixed an
+    # issue which stopped addresses geocoding into geofields. See https://www.drupal.org/project/geocoder/issues/2932171
     drupal/geocoder:2.x-dev \
-    drupal/address \
-    drupal/group \
-    drupal/geofield \
-    drupal/geofield_map:^1.24 \
-    drupal/realname \
-    drupal/google_map_field
+    drupal/address:1.13 \
+    # groups got this RC Jun 2017. Still need to fix some routing issues.
+    drupal/group:1.0.0-rc1 \
+    # is geofield ready for a beta or RC? Seems fully functional to me.
+    drupal/geofield:1.0.0-alpha4 \
+    drupal/geofield_map:1.24 \
+    # realname did this RC May 2017. Seems perfectly fine. Should they release?
+    drupal/realname:1.0.0-rc1\
+    # see https://www.drupal.org/docs/8/core/modules/rest/oauth-patch-example
+    drupal/restui:1.15
 
 EXPOSE 80
 
