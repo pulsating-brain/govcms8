@@ -32,12 +32,14 @@ RUN apt-get update && apt-get install -y \
 RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir=/usr/local/bin --filename=composer"
 RUN chmod a+x /usr/local/bin/composer
 
+USER www-data
 WORKDIR /var/www/html
 
 RUN composer create-project \
     --stability dev \
     --prefer-dist \
     --no-progress \
+    --no-dev \
     govcms/govcms8-project \
     /var/www/html
 
@@ -49,7 +51,7 @@ RUN composer require \
     --prefer-stable \
     --prefer-dist \
     --no-progress \
-    --optimize-autoloader \
+    --update-no-dev \
     # geocoder alpha6 released 18/12/17, alpha7 released on 20/12/17, commit made to dev on 22/12/17 which fixed an
     # issue which stopped addresses geocoding into geofields. See https://www.drupal.org/project/geocoder/issues/2932171
     drupal/geocoder:2.x-dev \
