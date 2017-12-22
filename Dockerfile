@@ -62,7 +62,9 @@ RUN composer require \
     # realname did this RC May 2017. Seems perfectly fine. Should they release?
     drupal/realname:1.0.0-rc1\
     # see https://www.drupal.org/docs/8/core/modules/rest/oauth-patch-example
-    drupal/restui:~1.0
+    drupal/restui:~1.0 \
+    drupal/api_key_manager \
+    drupal/telephone_validation
 
 EXPOSE 80
 
