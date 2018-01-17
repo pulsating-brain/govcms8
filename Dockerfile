@@ -41,12 +41,11 @@ RUN composer create-project \
     --no-progress \
     --no-dev \
     govcms/govcms8-project \
-    /var/www/html
+    /var/www/html \
+    && chmod -R a+w /var/www/html/docroot/sites/default
 
-# Allow the settings.php file and files directory to be created.
-# TODO make this pull settings.php from local project development directory
 COPY config/settings.php /var/www/html/docroot/sites/default/settings.php
-RUN chmod -R a+w /var/www/html/docroot/sites/default
+
 
 RUN composer require \
     --prefer-stable \
