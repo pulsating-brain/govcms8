@@ -71,7 +71,7 @@ RUN composer require \
     drupal/api_key_manager:~1.0 \
     drupal/telephone_validation:~2.0 \
     drupal/social_api:2.0.0-beta3 \
-    drupal/chart:3.0.0-alpha7 \
+    drupal/charts:3.0.0-alpha7 \
     drupal/bibcite:1.0.0-alpha4
 
 EXPOSE 80
