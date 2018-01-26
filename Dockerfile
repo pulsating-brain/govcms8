@@ -61,8 +61,7 @@ RUN composer require \
     # which passes tests and is applyable but is broken in the content edit and delete routes
     drupal/group:1.0.0-rc1 \
     # is geofield ready for a beta or RC? Seems fully functional to me.
-    # TODO geofield alpha5 was released on 14/1/18 but not tested this upgrade yet
-    drupal/geofield:1.0.0-alpha4 \
+    drupal/geofield:1.0.0-alpha5 \
     drupal/geofield_map:~1.0 \
     # realname did this RC May 2017. There's a core issue holding a further release - see
     # https://www.drupal.org/project/drupal/issues/2629286
@@ -71,7 +70,9 @@ RUN composer require \
     drupal/restui:~1.0 \
     drupal/api_key_manager:~1.0 \
     drupal/telephone_validation:~2.0 \
-    drupal/social_api:2.0.0-beta3
+    drupal/social_api:2.0.0-beta3 \
+    drupal/chart:3.0.0-alpha7 \
+    drupal/bibcite:1.0.0-alpha4
 
 EXPOSE 80
 USER root
