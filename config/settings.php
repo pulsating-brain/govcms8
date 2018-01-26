@@ -77,7 +77,7 @@ $settings['hash_salt'] = 'bPFNSJ0xxxqpXj51AyYXJLp4lQq0g8lUgCf92BYQ_jYBeT681JF7pT
 /**
  * Disable access to the update.php script.
  */
-$settings['update_free_access'] = TRUE;
+$settings['update_free_access'] = FALSE;
 
 /**
  * Disable website code updates through Drupal's Update Manager module - we
