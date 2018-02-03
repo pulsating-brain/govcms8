@@ -1,3 +1,5 @@
+image: markfuller/govcms8:1.0.0
+
 stages:
   - test
 
