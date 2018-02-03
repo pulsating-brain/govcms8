@@ -1,11 +1,5 @@
 stages:
   - build
-  - test
-
-build image:
-  image: markfuller/govcms8
-  stage: build
-  script: ls -l /var/www/html/docroot
   
 
 phpunit:
@@ -15,6 +9,8 @@ phpunit:
     - composer require phpunit/phpunit
     - ls ..
     - ls
+    - ls bin
+    - ls vendor
     - vendor/bin/phpunit --testsuite=unit
-  stage: test
+  stage: build
     
