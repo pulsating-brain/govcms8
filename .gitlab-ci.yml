@@ -8,12 +8,15 @@ build image:
   script: ls -l /var/www/html/docroot
   
 install development tools:
+  image: markfuller/govcms8
   script:
+    - ls -l /var/www
     - cd /var/www
     - su www-data
     - composer update --dev
   stage: build
 phpunit:
+  image markfuller/govcms8
   script:
     - cd /var/www/html/docroot/core
     - ../../vendor/bin/phpunit --testsuite=unit
