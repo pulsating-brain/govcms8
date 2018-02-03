@@ -3,5 +3,5 @@ stages:
 
 test:
   script:
-    - cd /var/www/html/scripts
-    - php run-tests.sh --verbose
+    - cd /var/www/html/docroot/core
+    - ../vendor/bin/phpunit --testsuite=unit
