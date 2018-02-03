@@ -1,1 +1,3 @@
 .git
+.gitlab-ci.yml
+settings.local.php
