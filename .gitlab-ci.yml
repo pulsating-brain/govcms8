@@ -5,6 +5,7 @@ stages:
 build image:
   image: markfuller/govcms8
   stage: build
+  script: ls -l /var/www/html/docroot
   
 install development tools:
   script:
