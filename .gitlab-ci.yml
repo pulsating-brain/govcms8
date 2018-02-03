@@ -11,6 +11,6 @@ phpunit:
     - ls
     - ls bin
     - ls vendor
-    - vendor/bin/phpunit --testsuite=unit
+    - bin/phpunit --testsuite=unit
   stage: build
     
