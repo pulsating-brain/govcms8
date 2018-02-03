@@ -7,10 +7,7 @@ phpunit:
   script:
     - cd /var/www/html
     - composer require phpunit/phpunit
-    - ls ..
-    - ls
-    - ls bin
-    - ls vendor
-    - bin/phpunit --testsuite=unit
+    - cd docroot/core
+    - ../../bin/phpunit --testsuite=unit
   stage: build
     
