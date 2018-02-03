@@ -5,5 +5,7 @@ stages:
 
 test:
   script:
+    - cd /var/www/
+    - composer add --dev
     - cd /var/www/html/docroot/core
     - ../../vendor/bin/phpunit --testsuite=unit
