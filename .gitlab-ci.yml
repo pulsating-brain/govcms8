@@ -6,7 +6,7 @@ build image:
   image: markfuller/govcms8
   stage: build
   
-install development tools
+install development tools:
   script:
     - cd /var/www
     - su www-data
