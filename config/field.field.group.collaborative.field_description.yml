@@ -1,0 +1,24 @@
+uuid: 1516ce78-a883-422b-94ca-4d1a6dddfb82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_description
+    - group.type.collaborative
+  module:
+    - text
+id: group.collaborative.field_description
+field_name: field_description
+entity_type: group
+bundle: collaborative
+label: Description
+description: 'The group description is the first piece of content on all of the group front pages'
+required: false
+translatable: false
+default_value:
+  -
+    value: "<p><strong>Welcome to your new group</strong>...</p>\r\n\r\n<p>Please enter a description of&nbsp;</p>\r\n"
+    format: formatted_text
+default_value_callback: ''
+settings: {  }
+field_type: text_long

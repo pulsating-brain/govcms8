@@ -1,0 +1,8 @@
+uuid: 2a23f5be-4c57-4bde-93c0-081808d59ba6
+langcode: en
+status: true
+dependencies: {  }
+id: govcms8_issue_queue_block
+theme: ''
+text: ''
+classes: ''

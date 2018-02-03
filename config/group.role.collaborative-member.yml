@@ -1,0 +1,20 @@
+uuid: 6271d83a-77a0-447f-91f6-922a4b90bcf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collaborative
+id: collaborative-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: collaborative
+permissions_ui: true
+permissions:
+  0: 'view group_membership content'
+  1: 'view group'
+  2: 'create group_node:issue entity'
+  3: 'update own group_node:issue entity'
+  4: 'view group_node:issue entity'
+  8: 'update any group_node:issue entity'

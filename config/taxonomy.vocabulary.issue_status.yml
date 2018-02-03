@@ -1,0 +1,9 @@
+uuid: c4e4a171-9f7f-4a56-8555-fe47b844942f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Issue Status'
+vid: issue_status
+description: 'Status of issues in the issue queue e.g active, fixed.'
+hierarchy: 0
+weight: 0

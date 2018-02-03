@@ -1,0 +1,31 @@
+uuid: 979fb0f5-6559-4d47-bd5a-5fe11d532e27
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.issue_status
+  module:
+    - text
+id: taxonomy_term.issue_status.default
+targetEntityType: taxonomy_term
+bundle: issue_status
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true

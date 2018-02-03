@@ -1,0 +1,24 @@
+uuid: 8838b3ba-ef0b-4f49-82a6-12c1bcb6d563
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.group_lists
+  module:
+    - views
+  theme:
+    - bartik
+id: location_list_block
+theme: bartik
+region: footer_second
+weight: -8
+provider: null
+plugin: 'views_block:group_lists-location_list_block'
+settings:
+  id: 'views_block:group_lists-location_list_block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

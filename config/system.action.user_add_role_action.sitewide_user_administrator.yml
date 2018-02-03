@@ -1,0 +1,14 @@
+uuid: 564c49c0-c887-4ef8-85e4-a726667d734a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.sitewide_user_administrator
+  module:
+    - user
+id: user_add_role_action.sitewide_user_administrator
+label: 'Add the Sitewide User Administrator role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: sitewide_user_administrator

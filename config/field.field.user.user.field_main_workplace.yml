@@ -1,0 +1,29 @@
+uuid: 33ccaefb-b6c3-4984-96d4-46040729a63c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_main_workplace
+    - taxonomy.vocabulary.workplace
+  module:
+    - user
+id: user.user.field_main_workplace
+field_name: field_main_workplace
+entity_type: user
+bundle: user
+label: 'Main Workplace'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      workplace: workplace
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

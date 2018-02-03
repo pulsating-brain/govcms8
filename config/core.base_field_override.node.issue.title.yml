@@ -1,0 +1,18 @@
+uuid: c755a887-4a92-4359-8ed2-2fecfed7e315
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.issue
+id: node.issue.title
+field_name: title
+entity_type: node
+bundle: issue
+label: 'Brief Description'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

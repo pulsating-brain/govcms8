@@ -1,0 +1,29 @@
+uuid: 0c0800f7-1826-42d3-8cea-70efca565827
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_software
+    - node.type.issue
+    - taxonomy.vocabulary.software
+id: node.issue.field_software
+field_name: field_software
+entity_type: node
+bundle: issue
+label: Software
+description: 'Please enter the name of the Software this issue relates to. You may select more than one item'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      software: software
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

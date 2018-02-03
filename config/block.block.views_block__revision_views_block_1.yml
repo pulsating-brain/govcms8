@@ -1,0 +1,33 @@
+uuid: e2b8c632-d242-4f2b-84e3-bd7234688d10
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.revision_views
+  module:
+    - user
+    - views
+  theme:
+    - bartik
+id: views_block__revision_views_block_1
+theme: bartik
+region: sidebar_second
+weight: -6
+provider: null
+plugin: 'views_block:revision_views-block_1'
+settings:
+  id: 'views_block:revision_views-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

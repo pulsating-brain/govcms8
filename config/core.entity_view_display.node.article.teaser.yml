@@ -1,0 +1,32 @@
+uuid: 42f6c824-a104-4428-ad87-e2349b3f27a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.article.field_page_content
+    - node.type.article
+  module:
+    - text
+    - user
+id: node.article.teaser
+targetEntityType: node
+bundle: article
+mode: teaser
+content:
+  field_page_content:
+    type: text_trimmed
+    weight: 0
+    region: content
+    label: visually_hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  flag_email_node: true
+  flag_subscribe_node: true

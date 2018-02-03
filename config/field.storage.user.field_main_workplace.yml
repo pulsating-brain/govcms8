@@ -1,0 +1,20 @@
+uuid: 5ce0e564-4aa6-4393-b377-6b6c7095a355
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - user
+id: user.field_main_workplace
+field_name: field_main_workplace
+entity_type: user
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

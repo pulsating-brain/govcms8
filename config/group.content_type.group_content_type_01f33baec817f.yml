@@ -1,0 +1,17 @@
+uuid: 4da23afe-d692-4c82-9a2d-2401a13f85cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.physical_locations
+  module:
+    - user
+id: group_content_type_01f33baec817f
+label: 'Location: Group membership'
+description: 'Adds users to groups as members.'
+group_type: physical_locations
+content_plugin: group_membership
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: true

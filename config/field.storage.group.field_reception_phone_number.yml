@@ -1,0 +1,19 @@
+uuid: e772b6b1-f0c2-435f-adfa-ab393da8835c
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+    - telephone
+id: group.field_reception_phone_number
+field_name: field_reception_phone_number
+entity_type: group
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

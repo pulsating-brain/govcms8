@@ -1,0 +1,23 @@
+uuid: 3a5d619d-9617-4175-bc56-2afcf49c8275
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_swsd_ticket_number
+    - node.type.issue
+id: node.issue.field_swsd_ticket_number
+field_name: field_swsd_ticket_number
+entity_type: node
+bundle: issue
+label: 'SWSD Ticket Number'
+description: 'If there is a ticket number for the State-Wide Service Desk please enter the number portion only here. A ticket number starts with a T:<number> and is the initial job logged at the Statewide Service Desk. Please see also the Change Request number below which begins with a C:'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 9400000
+  max: 999999999
+  prefix: 'T:'
+  suffix: ''
+field_type: integer

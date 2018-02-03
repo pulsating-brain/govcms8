@@ -1,0 +1,21 @@
+uuid: 2de5e9d5-523f-4f1c-b112-7b46157ab9fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_reception_phone_number
+    - group.type.physical_locations
+  module:
+    - telephone
+id: group.physical_locations.field_reception_phone_number
+field_name: field_reception_phone_number
+entity_type: group
+bundle: physical_locations
+label: 'Reception Phone Number'
+description: 'Enter the main reception front desk phone number'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

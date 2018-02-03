@@ -1,0 +1,39 @@
+uuid: cbf9cd4b-b2dc-44b0-89f2-8af6057b3b6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.priority.field_fontawesome_icon_name
+    - field.field.taxonomy_term.priority.field_priority_number
+    - taxonomy.vocabulary.priority
+id: taxonomy_term.priority.default
+targetEntityType: taxonomy_term
+bundle: priority
+mode: default
+content:
+  field_fontawesome_icon_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_priority_number:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

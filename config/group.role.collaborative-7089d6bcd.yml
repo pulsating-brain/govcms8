@@ -1,0 +1,17 @@
+uuid: 7e82b242-0219-4ae9-ae62-781475d20b95
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collaborative
+  enforced:
+    config:
+      - user.role.sitewide_user_administrator
+id: collaborative-7089d6bcd
+label: 'Sitewide User Administrator'
+weight: 2
+internal: true
+audience: outsider
+group_type: collaborative
+permissions_ui: false
+permissions: {  }

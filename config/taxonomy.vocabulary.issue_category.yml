@@ -1,0 +1,9 @@
+uuid: 2116761c-25ac-42a9-959b-48576a21e9ec
+langcode: en
+status: true
+dependencies: {  }
+name: 'Issue Category'
+vid: issue_category
+description: 'Type of issue'
+hierarchy: 0
+weight: 0

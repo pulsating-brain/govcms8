@@ -1,0 +1,25 @@
+uuid: 07c361e0-84c3-4bc2-b975-12dd449478da
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.issue_priority_blocks
+  module:
+    - views
+  theme:
+    - bartik
+id: views_block__issue_priority_blocks_issues_blocking_block
+theme: bartik
+region: sidebar_second
+weight: -5
+provider: null
+plugin: 'views_block:issue_priority_blocks-issues_blocking_block'
+settings:
+  id: 'views_block:issue_priority_blocks-issues_blocking_block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

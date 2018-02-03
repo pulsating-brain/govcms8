@@ -1,0 +1,17 @@
+uuid: 16fe542f-fb53-4ce9-a1f8-5e86a6f526c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Issue
+type: issue
+description: "An issue that needs to be discussed and resolved. Issues appear in the relevant group home pages and also in various other views which are accessible to everyone registered with this website. Issues belong to workgroup or location types. When issues are added from a Workgroup page it is automatically allocated to that Workgroup. Similarly when added from a physical Location group page it will be allocated to that location only.\r\n\r\nIf the issue affects multiple locations then currently each Location group needs to be opened and the Issue added to it using the \"Related Entities\" tab on the Location group page. Business rules for this workflow will be built when this becomes tedious to do."
+help: 'Please enter a (very) short description of the problem or issue'
+new_revision: true
+preview_mode: 0
+display_submitted: true

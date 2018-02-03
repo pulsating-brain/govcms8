@@ -1,0 +1,21 @@
+uuid: 6e8ac69d-6d79-4917-8b63-6f4083691b32
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.content_type.collaborative-group_node-issue
+id: group_content.collaborative-group_node-issue.default
+targetEntityType: group_content
+bundle: collaborative-group_node-issue
+mode: default
+content:
+  entity_id:
+    type: entity_reference_label
+    weight: 0
+    region: content
+    label: visually_hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+hidden:
+  uid: true

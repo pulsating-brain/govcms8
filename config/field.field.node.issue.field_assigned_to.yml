@@ -1,0 +1,29 @@
+uuid: fcdd7fe1-ae5d-42ae-b68e-c800b0092819
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_assigned_to
+    - node.type.issue
+id: node.issue.field_assigned_to
+field_name: field_assigned_to
+entity_type: node
+bundle: issue
+label: 'Assigned To'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: field_first_name
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

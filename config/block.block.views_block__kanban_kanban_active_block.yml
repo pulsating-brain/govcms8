@@ -1,0 +1,25 @@
+uuid: fee79559-b9a9-49d1-a4cf-2b2b39d257c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.kanban
+  module:
+    - views
+  theme:
+    - bartik
+id: views_block__kanban_kanban_active_block
+theme: bartik
+region: sidebar_second
+weight: -2
+provider: null
+plugin: 'views_block:kanban-kanban_active_block'
+settings:
+  id: 'views_block:kanban-kanban_active_block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

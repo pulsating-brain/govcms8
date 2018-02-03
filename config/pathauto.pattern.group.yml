@@ -1,0 +1,14 @@
+uuid: 6c21f3f6-b88d-473b-ac71-337f6c1e9b21
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group
+label: Group
+type: 'canonical_entities:group'
+pattern: '[group:type-name]/[group:title]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

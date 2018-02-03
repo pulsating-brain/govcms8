@@ -1,0 +1,19 @@
+uuid: 30545615-db4f-4f19-a463-25b9b25377d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collaborative
+id: collaborative-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: collaborative
+permissions_ui: true
+permissions:
+  - 'view group_membership content'
+  - 'view group'
+  - 'create group_node:issue entity'
+  - 'update own group_node:issue entity'
+  - 'view group_node:issue entity'

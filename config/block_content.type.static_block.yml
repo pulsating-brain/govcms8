@@ -1,0 +1,8 @@
+uuid: fed7d841-ced8-4016-bd90-57eabf10681f
+langcode: en
+status: true
+dependencies: {  }
+id: static_block
+label: 'Static Block'
+revision: 0
+description: 'Static content blocks e.g.the Title sitting above 4 columns of the Kanban Board'

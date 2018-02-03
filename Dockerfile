@@ -1,72 +1,94 @@
-# Drush Make will be depreciated in Drupal 9.
-# All efforts MUST go into using Composer to bootstrap a site.
-# Roadmap: https://github.com/drush-ops/drush/issues/2528
-
-
-
-# from https://www.drupal.org/requirements/php#drupalversions
-# accepts connections on port 9000
-FROM php:7.1-apache
+# Drush Make will be depreciated in Drupal 9. All efforts MUST go into using Composer to bootstrap a site.
+# Roadmap: https://github.com/drush-ops/drush/issues/2528  See:  https://www.drupal.org/requirements/php#drupalversions
+FROM php:7.1-fpm-alpine
 
 ENV APACHE_DOCUMENT_ROOT /var/www/html/docroot
 ENV COMPOSER_PROCESS_TIMEOUT 900
 ENV TIMEZONE Australia/Sydney
 
-RUN a2enmod rewrite
+ENV BUILD_DEPS=" \
+  autoconf \
+  binutils \
+  g++ \
+  gcc \
+  libc-dev \
+  make \
+  musl-dev"
 
-RUN apt-get update && apt-get install -y \
-  libpng12-dev \
-  libjpeg-dev \
-  libpq-dev \
-  libbz2-dev \
+RUN apk update && apk add  \
+  --no-cache \
+  ${BUILD_DEPS} \
+  # see https://github.com/smebberson/docker-alpine/blob/master/alpine-apache/Dockerfile
+  apache2 \
+  apache2-utils \
+  bash \
+  bzip2-dev \
+  git \
+  jpeg-dev \
+  libpng-dev \
+  libpq \
+  openrc \
   unzip \
-  git-core \
-  telnet \
   mysql-client \
-  && rm -rf /var/lib/apt/lists/* \
-  && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-  && docker-php-ext-install bz2 gd mbstring opcache pcntl pdo_mysql zip
+  && docker-php-ext-configure \
+    gd \
+    --with-png-dir=/usr \
+    --with-jpeg-dir=/usr \
+  && docker-php-ext-install \
+    bz2 \
+    gd \
+    mbstring \
+    opcache \
+    pcntl \
+    pdo_mysql \
+    zip \
+    # Clean Up
+    && apk del ${BUILD_DEPS}
+    # TODO cleanup build files
 
 RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir=/usr/local/bin --filename=composer" \
-    && chmod a+x /usr/local/bin/composer \
-    && mkdir /var/www/.composer \
-    && chown www-data:www-data /var/www/.composer
+  && chmod a+x /usr/local/bin/composer \
+  && mkdir /var/www/.composer \
+  && chown www-data:www-data /var/www/.composer \
+  && mkdir /var/www/privately-uploaded-files \
+  && mkdir /var/www/publicly-uploaded-files \
+  && chown www-data:www-data /var/www/privately-uploaded-files \
+  && chown www-data:www-data /var/www/publicly-uploaded-files
+
+RUN chown www-data:www-data /var/www/html
 
 USER www-data
-WORKDIR /var/www/html
-
+WORKDIR /var/www
 RUN composer create-project \
-    --stability dev \
-    --prefer-dist \
-    --no-progress \
-    --no-dev \
-    govcms/govcms8-project \
-    /var/www/html \
-    && chmod -R a+w /var/www/html/docroot/sites/default
+  --stability alpha \
+  --prefer-dist \
+  --no-progress \
+  --no-dev \
+  govcms/govcms8-project \
+  html \
+  # TODO minimise permissions
+  && chmod -R a+w html/docroot/sites/default
 
-COPY config/settings.php /var/www/html/docroot/sites/default/settings.php
+ADD settings.php html/docroot/sites/default/
+ADD config html/config/
+ADD httpd.conf /etc/apache2/httpd.conf
 
-
+WORKDIR /var/www/html
 RUN composer require \
     --prefer-stable \
     --prefer-dist \
     --no-progress \
     --update-no-dev \
-    # geocoder alpha6 released 18/12/17, alpha7 released on 20/12/17, commit made to dev on 22/12/17 which fixed an
-    # issue which stopped addresses geocoding into geofields. See https://www.drupal.org/project/geocoder/issues/2932171
-    # TODO beta1 released 13/1/18 but not tested this upgrade yet.
-    drupal/geocoder:2.x-dev \
+    drupal/geocoder:2.0.0-beta1 \
     drupal/address:~1.0 \
-    # groups got this RC Jun 2017. Still need to fix some routing issues. Kristiaan released a big patch early 2018
-    # which passes tests and is applyable but is broken in the content edit and delete routes
+    # Groups RC1 06-2017 - Kristiaan released a big patch early 2018 but group content edit and delete routes don't work
     drupal/group:1.0.0-rc1 \
-    # is geofield ready for a beta or RC? Seems fully functional to me.
+    # Geofield seems ready for a beta or RC to me
     drupal/geofield:1.0.0-alpha5 \
     drupal/geofield_map:~1.0 \
-    # realname did this RC May 2017. There's a core issue holding a further release - see
-    # https://www.drupal.org/project/drupal/issues/2629286
+    # Realname RC 05-2017 - There's a core issue holding a further release. It works but doesn't display real names in
+    # all places yet. See https://www.drupal.org/project/drupal/issues/2629286.
     drupal/realname:1.0.0-rc1\
-    # see https://www.drupal.org/docs/8/core/modules/rest/oauth-patch-example
     drupal/restui:~1.0 \
     drupal/api_key_manager:~1.0 \
     drupal/telephone_validation:~2.0 \

@@ -1,0 +1,31 @@
+uuid: afe0cbaf-508b-45f2-8216-5399ddd966e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.group_nodes
+  module:
+    - system
+    - views
+  theme:
+    - bartik
+id: it_issue_queue_block
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:group_nodes-it_issue_queue_block'
+settings:
+  id: 'views_block:group_nodes-it_issue_queue_block'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /group/1
+    negate: false
+    context_mapping: {  }

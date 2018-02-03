@@ -1,0 +1,14 @@
+uuid: 4f4470fd-fa72-4e38-a116-cf20ea1e3a33
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.sitewide_user_administrator
+  module:
+    - user
+id: user_remove_role_action.sitewide_user_administrator
+label: 'Remove the Sitewide User Administrator role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: sitewide_user_administrator

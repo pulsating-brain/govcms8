@@ -1,0 +1,21 @@
+uuid: 2f810ac8-32c3-4482-a046-bfeb0459263e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_content
+    - node.type.static_page
+  module:
+    - text
+id: node.static_page.field_page_content
+field_name: field_page_content
+entity_type: node
+bundle: static_page
+label: 'Page Content'
+description: 'Enter the static page content below. '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,14 @@
+uuid: af8a4b40-446c-41b8-80b6-f13e8274d29c
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.content_type.group_content_type_d12962746bbe2
+id: group_content.group_content_type_d12962746bbe2.default
+targetEntityType: group_content
+bundle: group_content_type_d12962746bbe2
+mode: default
+content: {  }
+hidden:
+  entity_id: true
+  uid: true

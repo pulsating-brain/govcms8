@@ -1,0 +1,19 @@
+uuid: 1f71a8cb-2058-4bb3-805d-940e20448e42
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collaborative
+    - node.type.issue
+  module:
+    - gnode
+    - node
+id: collaborative-group_node-issue
+label: 'Collaborative: Group node (Issue)'
+description: 'Adds <em class="placeholder">Issue</em> content to groups both publicly and privately.'
+group_type: collaborative
+content_plugin: 'group_node:issue'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

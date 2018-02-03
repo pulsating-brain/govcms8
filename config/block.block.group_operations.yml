@@ -1,0 +1,24 @@
+uuid: dc568671-37d8-4217-a774-237fbdebae62
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+  theme:
+    - bartik
+_core:
+  default_config_hash: MjMChFykEa-4UxdnGstVk1FcXqwUF3p_GBJLIFT3_XI
+id: group_operations
+theme: bartik
+region: sidebar_second
+weight: -7
+provider: null
+plugin: group_operations
+settings:
+  id: group_operations
+  label: 'Group operations'
+  provider: group
+  label_display: '0'
+  context_mapping:
+    group: '@group.group_route_context:group'
+visibility: {  }

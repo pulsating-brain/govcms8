@@ -1,0 +1,43 @@
+uuid: 04c93450-78da-431a-92fc-3f25c92eec4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.article.field_page_content
+    - node.type.article
+  module:
+    - text
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  field_page_content:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

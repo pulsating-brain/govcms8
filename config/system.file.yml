@@ -1,0 +1,8 @@
+allow_insecure_uploads: false
+default_scheme: private
+path:
+  temporary: sites/mark-fuller.net.au/private/temp
+  private: sites/mark-fuller.net.au/private/files
+temporary_maximum_age: 0
+_core:
+  default_config_hash: t48gCU9DzYfjb3bAOIqHLzhL0ChBlXh6_5B5Pyo9t8g

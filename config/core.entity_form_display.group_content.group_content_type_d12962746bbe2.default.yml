@@ -1,0 +1,30 @@
+uuid: 0722aea0-8bf9-466d-8a84-d5d702a11df7
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.content_type.group_content_type_d12962746bbe2
+  module:
+    - path
+id: group_content.group_content_type_d12962746bbe2.default
+targetEntityType: group_content
+bundle: group_content_type_d12962746bbe2
+mode: default
+content:
+  entity_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  uid: true

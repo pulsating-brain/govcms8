@@ -1,0 +1,7 @@
+stages:
+  - test
+
+test:
+  script:
+    - cd /var/www/html/scripts
+    - php run-tests.sh --verbose

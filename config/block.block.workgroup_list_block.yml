@@ -1,0 +1,24 @@
+uuid: 301ef066-fd2b-45f6-8964-7844d2060b04
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.group_lists
+  module:
+    - views
+  theme:
+    - bartik
+id: workgroup_list_block
+theme: bartik
+region: footer_first
+weight: -8
+provider: null
+plugin: 'views_block:group_lists-workgroup_list_block'
+settings:
+  id: 'views_block:group_lists-workgroup_list_block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

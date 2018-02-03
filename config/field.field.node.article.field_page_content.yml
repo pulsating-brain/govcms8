@@ -1,0 +1,21 @@
+uuid: a166843f-d098-4887-bcb3-ca77a6366200
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_content
+    - node.type.article
+  module:
+    - text
+id: node.article.field_page_content
+field_name: field_page_content
+entity_type: node
+bundle: article
+label: 'Page Content'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,26 @@
+uuid: 060e9a48-7c5a-470f-a421-3175018fae09
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'change own username'
+  - 'edit own comments'
+  - 'flag subscribe_node'
+  - 'flag subscribe_user'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'subscribe to newsletters'
+  - 'unflag subscribe_node'
+  - 'unflag subscribe_user'
+  - 'use advanced search'
+  - 'use text format formatted_text'
+  - 'view all revisions'

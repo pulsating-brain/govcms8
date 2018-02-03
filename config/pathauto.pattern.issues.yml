@@ -1,0 +1,23 @@
+uuid: 81acda62-bf85-425a-9a9c-32244b42050e
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - group
+id: issues
+label: Issues
+type: 'canonical_entities:group_content'
+pattern: 'issues/[group_content:label:value]'
+selection_criteria:
+  c201d155-0f84-4c8d-8687-a5cb946590b9:
+    id: 'entity_bundle:group_content'
+    bundles:
+      collaborative-group_node-issue: collaborative-group_node-issue
+    negate: false
+    context_mapping:
+      group_content: group_content
+    uuid: c201d155-0f84-4c8d-8687-a5cb946590b9
+selection_logic: and
+weight: -5
+relationships: {  }

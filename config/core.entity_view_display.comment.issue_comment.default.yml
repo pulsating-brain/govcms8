@@ -1,0 +1,36 @@
+uuid: 7ca566fd-7af0-4c4c-94fb-546ac40d31b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.issue_comment
+    - field.field.comment.issue_comment.comment_body
+    - field.field.comment.issue_comment.field_files
+  module:
+    - file
+    - text
+id: comment.issue_comment.default
+targetEntityType: comment
+bundle: issue_comment
+mode: default
+content:
+  comment_body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_files:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

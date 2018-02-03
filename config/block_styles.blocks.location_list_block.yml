@@ -1,0 +1,8 @@
+uuid: 489bc795-8af4-4939-a92c-1106eef426bd
+langcode: en
+status: true
+dependencies: {  }
+id: location_list_block
+theme: ''
+text: ''
+classes: ''
