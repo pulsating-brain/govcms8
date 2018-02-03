@@ -11,7 +11,8 @@ build image:
 phpunit:
   image: markfuller/govcms8
   script:
-    - cd /var/www/html/docroot/core
+    - cd /var/www/html
+    - composer require phpunit
     - ../../vendor/bin/phpunit --testsuite=unit
   stage: test
     
