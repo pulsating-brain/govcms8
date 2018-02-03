@@ -1,21 +1,11 @@
 stages:
   - build
-  
-dast:
-  image: owasp/zap2docker-stable
-  variables:
-    website: "https://mark-fuller.net.au"
-  script:
-    - mkdir /zap/wrk/
-    - /zap/zap-baseline.py -J gl-dast-report.json -t $website || true
-    - cp /zap/wrk/gl-dast-report.json .
-  artifacts:
-    paths: [gl-dast-report.json]
 
 phpunit:
   image: markfuller/govcms8
   script:
     - cd /var/www/html
+    - composer update --dev
     - composer require phpunit/phpunit
     - cd docroot/core
     - ../../bin/phpunit --testsuite=unit
