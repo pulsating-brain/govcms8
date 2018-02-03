@@ -13,7 +13,8 @@ phpunit:
   script:
     - cd /var/www/html
     - composer require phpunit/phpunit
-    - which phpunit
+    - ls ..
+    - ls
     - vendor/bin/phpunit --testsuite=unit
   stage: test
     
