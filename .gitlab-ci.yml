@@ -1,11 +1,20 @@
-image: markfuller/govcms8
-
 stages:
+  - build
   - test
 
-test:
+build image:
+  image: markfuller/govcms8
+  stage: build
+  
+install development tools
   script:
-    - cd /var/www/
-    - composer add --dev
+    - cd /var/www
+    - su www-data
+    - composer update --dev
+  stage: build
+phpunit:
+  script:
     - cd /var/www/html/docroot/core
     - ../../vendor/bin/phpunit --testsuite=unit
+  stage: test
+    
