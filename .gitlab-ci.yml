@@ -12,7 +12,7 @@ phpunit:
   image: markfuller/govcms8
   script:
     - cd /var/www/html
-    - composer require phpunit
-    - ../../vendor/bin/phpunit --testsuite=unit
+    - composer require phpunit/phpunit
+    - vendor/bin/phpunit --testsuite=unit
   stage: test
     
