@@ -16,7 +16,7 @@ install development tools:
     - composer update --dev
   stage: build
 phpunit:
-  image markfuller/govcms8
+  image: markfuller/govcms8
   script:
     - cd /var/www/html/docroot/core
     - ../../vendor/bin/phpunit --testsuite=unit
