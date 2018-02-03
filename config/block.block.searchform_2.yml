@@ -1,0 +1,28 @@
+uuid: 1d95273e-9a7e-4f28-b52e-fbf3e45904e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - user
+  theme:
+    - bartik
+id: searchform_2
+theme: bartik
+region: sidebar_second
+weight: -9
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  provider: search
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

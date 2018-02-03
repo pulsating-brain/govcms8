@@ -1,0 +1,8 @@
+uuid: 685e88f7-567d-4a2d-b608-68d5dc3269ab
+langcode: en
+status: true
+dependencies: {  }
+id: issue_comment
+label: 'Issue Comment'
+target_entity_type_id: node
+description: 'Comments on issues in the issue queue'

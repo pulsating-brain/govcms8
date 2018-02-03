@@ -1,0 +1,33 @@
+uuid: 2f5c94df-6532-4aba-a840-e553940c32b1
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:static_block:ec80cbda-1e78-4e49-be09-7e7175ad0a34'
+  module:
+    - block_content
+    - user
+  theme:
+    - bartik
+id: welcomeblockforloggedoutusers
+theme: bartik
+region: content
+weight: -4
+provider: null
+plugin: 'block_content:ec80cbda-1e78-4e49-be09-7e7175ad0a34'
+settings:
+  id: 'block_content:ec80cbda-1e78-4e49-be09-7e7175ad0a34'
+  label: 'Welcome block for logged out users'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

@@ -1,0 +1,26 @@
+uuid: db659e28-d2d1-40f3-aec0-0daadb9d0a77
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.issue
+  module:
+    - text
+id: node.issue.body
+field_name: body
+entity_type: node
+bundle: issue
+label: Description
+description: 'When submitting a support request please enter enough detail for us to understand the problem. Please use the template provided.'
+required: true
+translatable: true
+default_value:
+  -
+    summary: ''
+    value: "<p><strong>As a</strong></p>\r\n\r\n<p>The role being performed - doctor, nurse, administrator, auditor, team leader etc. Please replace this text with the role you are in when this issue arises</p>\r\n\r\n<p><strong>I need to:</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n"
+    format: formatted_text
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

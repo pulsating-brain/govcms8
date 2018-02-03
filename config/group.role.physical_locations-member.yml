@@ -1,0 +1,26 @@
+uuid: acab3813-d31b-4c19-b0d4-07d20045b201
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.physical_locations
+id: physical_locations-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: physical_locations
+permissions_ui: true
+permissions:
+  - 'administer members'
+  - 'leave group'
+  - 'view group_membership content'
+  - 'view group'
+  - 'create group_node:issue entity'
+  - 'update any group_node:issue entity'
+  - 'view group_node:issue entity'
+  - 'view unpublished group_node:issue entity'
+  - 'create group_node:issue content'
+  - 'delete own group_node:issue content'
+  - 'update own group_node:issue content'
+  - 'view group_node:issue content'

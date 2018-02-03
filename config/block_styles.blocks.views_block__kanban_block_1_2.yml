@@ -1,0 +1,8 @@
+uuid: d639628c-8e7d-4362-b709-e2dbb3113491
+langcode: en
+status: true
+dependencies: {  }
+id: views_block__kanban_block_1_2
+theme: block__clean
+text: ''
+classes: dark

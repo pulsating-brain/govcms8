@@ -1,0 +1,23 @@
+uuid: eb0ea124-80c4-4974-b4c3-a02b9ffe2511
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.physical_locations
+id: physical_locations-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: physical_locations
+permissions_ui: true
+permissions:
+  - 'join group'
+  - 'view group_membership content'
+  - 'view group'
+  - 'update own group_node:issue entity'
+  - 'view group_node:issue entity'
+  - 'create group_node:issue content'
+  - 'delete own group_node:issue content'
+  - 'update own group_node:issue content'
+  - 'view group_node:issue content'

@@ -1,0 +1,40 @@
+uuid: c7b653f6-c5f6-4ca4-8b2f-8f1f650d479b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.physical_locations.field_reception_fax_number
+    - field.field.group.physical_locations.field_reception_phone_number
+    - group.type.physical_locations
+  module:
+    - telephone
+id: group.physical_locations.default
+targetEntityType: group
+bundle: physical_locations
+mode: default
+content:
+  field_reception_fax_number:
+    weight: 3
+    settings:
+      placeholder: Fax...
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_reception_phone_number:
+    weight: 2
+    settings:
+      placeholder: Phone...
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 80
+      placeholder: 'enter location name ...'
+    third_party_settings: {  }
+hidden:
+  path: true
+  uid: true

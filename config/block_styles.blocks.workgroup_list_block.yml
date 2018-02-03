@@ -1,0 +1,8 @@
+uuid: 76b99d43-43f1-45bd-81c3-24b65951be23
+langcode: en
+status: true
+dependencies: {  }
+id: workgroup_list_block
+theme: ''
+text: ''
+classes: ''

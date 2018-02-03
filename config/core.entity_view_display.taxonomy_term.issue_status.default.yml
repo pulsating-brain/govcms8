@@ -1,0 +1,21 @@
+uuid: a09f879b-e900-42d6-8557-b4b2137b46f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.issue_status
+  module:
+    - text
+id: taxonomy_term.issue_status.default
+targetEntityType: taxonomy_term
+bundle: issue_status
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

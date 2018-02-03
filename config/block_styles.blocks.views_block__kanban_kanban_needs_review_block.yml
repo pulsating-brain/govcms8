@@ -1,0 +1,8 @@
+uuid: 83ebe869-1d4b-4db9-b8d5-2129154b4c2a
+langcode: en
+status: true
+dependencies: {  }
+id: views_block__kanban_kanban_needs_review_block
+theme: ''
+text: ''
+classes: ''

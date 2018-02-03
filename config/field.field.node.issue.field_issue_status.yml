@@ -1,0 +1,32 @@
+uuid: b64ab0d7-ab8b-4b48-9d6e-8042a1635cba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issue_status
+    - node.type.issue
+    - taxonomy.vocabulary.issue_status
+  content:
+    - 'taxonomy_term:issue_status:71adf4e9-530f-431d-b95d-fd4b8dd5060d'
+id: node.issue.field_issue_status
+field_name: field_issue_status
+entity_type: node
+bundle: issue
+label: Status
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 71adf4e9-530f-431d-b95d-fd4b8dd5060d
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      issue_status: issue_status
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

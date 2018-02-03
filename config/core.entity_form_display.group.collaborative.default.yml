@@ -1,0 +1,33 @@
+uuid: 72c2abf3-4a1b-4400-b415-a1aa320dfc23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.collaborative.field_description
+    - group.type.collaborative
+  module:
+    - text
+id: group.collaborative.default
+targetEntityType: group
+bundle: collaborative
+mode: default
+content:
+  field_description:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true
+  uid: true

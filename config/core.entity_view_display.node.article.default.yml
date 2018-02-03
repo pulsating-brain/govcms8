@@ -1,0 +1,31 @@
+uuid: c756ad3d-88a4-40d5-b6d9-a5f02cfa4c76
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.article.field_page_content
+    - node.type.article
+  module:
+    - text
+    - user
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  field_page_content:
+    weight: 0
+    label: visually_hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    type: text_trimmed
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  flag_email_node: true
+  flag_subscribe_node: true

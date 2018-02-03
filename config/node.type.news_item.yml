@@ -1,0 +1,17 @@
+uuid: a600d024-bdcb-4e5d-a9c4-fe0af05b1eae
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'News Item'
+type: news_item
+description: 'News appears in the banner on the website and can be sent in a newsletter'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

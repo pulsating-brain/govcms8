@@ -1,0 +1,12 @@
+uuid: 7186ddf3-7a91-40e6-875d-9437664f1ac7
+langcode: en
+status: true
+dependencies: {  }
+id: sitewide_user_administrator
+label: 'Sitewide User Administrator'
+weight: 2
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access user profiles'
+  - 'administer users'

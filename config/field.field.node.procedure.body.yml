@@ -1,0 +1,22 @@
+uuid: df78c9c4-a80b-492b-8f97-9bb8db6ce8ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.procedure
+  module:
+    - text
+id: node.procedure.body
+field_name: body
+entity_type: node
+bundle: procedure
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

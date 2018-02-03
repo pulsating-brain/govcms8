@@ -1,0 +1,113 @@
+uuid: 7e504683-caef-4838-bdbf-4b8eaaac321d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.issue.body
+    - field.field.node.issue.field_assigned_to
+    - field.field.node.issue.field_category
+    - field.field.node.issue.field_change_request_number
+    - field.field.node.issue.field_files
+    - field.field.node.issue.field_issue_comment
+    - field.field.node.issue.field_issue_status
+    - field.field.node.issue.field_priority
+    - field.field.node.issue.field_related_issues
+    - field.field.node.issue.field_software
+    - field.field.node.issue.field_swsd_ticket_number
+    - node.type.issue
+  module:
+    - file
+    - text
+id: node.issue.default
+targetEntityType: node
+bundle: issue
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 5
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_assigned_to:
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_category:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_change_request_number:
+    weight: 10
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_files:
+    weight: 7
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_issue_status:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_priority:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_related_issues:
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_software:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_swsd_ticket_number:
+    weight: 9
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_issue_comment: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

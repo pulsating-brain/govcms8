@@ -1,0 +1,17 @@
+uuid: e9b43a39-50f9-437f-b558-d2fa829c31af
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.physical_locations
+  enforced:
+    config:
+      - user.role.sitewide_user_administrator
+id: physical_locations-7089d6bcd
+label: 'Sitewide User Administrator'
+weight: 2
+internal: true
+audience: outsider
+group_type: physical_locations
+permissions_ui: false
+permissions: {  }

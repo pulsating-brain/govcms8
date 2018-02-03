@@ -1,0 +1,23 @@
+uuid: eb491468-330f-47bb-a2cf-e633281e7d50
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.content_type.collaborative-group_node-issue
+id: group_content.collaborative-group_node-issue.default
+targetEntityType: group_content
+bundle: collaborative-group_node-issue
+mode: default
+content:
+  entity_id:
+    type: entity_reference_autocomplete
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  path: true
+  uid: true

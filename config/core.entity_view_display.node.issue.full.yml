@@ -1,0 +1,117 @@
+uuid: aecca118-6e2c-47ff-82fe-ba677cd7a202
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.issue_comment.default
+    - core.entity_view_mode.node.full
+    - field.field.node.issue.body
+    - field.field.node.issue.field_assigned_to
+    - field.field.node.issue.field_category
+    - field.field.node.issue.field_change_request_number
+    - field.field.node.issue.field_files
+    - field.field.node.issue.field_issue_comment
+    - field.field.node.issue.field_issue_status
+    - field.field.node.issue.field_priority
+    - field.field.node.issue.field_related_issues
+    - field.field.node.issue.field_swsd_ticket_number
+    - node.type.issue
+  module:
+    - comment
+    - file
+    - text
+    - user
+id: node.issue.full
+targetEntityType: node
+bundle: issue
+mode: full
+content:
+  body:
+    label: visually_hidden
+    type: text_default
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_assigned_to:
+    weight: 6
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_category:
+    weight: 1
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_change_request_number:
+    type: number_integer
+    weight: 8
+    region: content
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+  field_files:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_table
+    region: content
+  field_issue_comment:
+    weight: 10
+    label: above
+    settings:
+      pager_id: 0
+      view_mode: default
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_issue_status:
+    weight: 2
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_priority:
+    weight: 0
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_related_issues:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_swsd_ticket_number:
+    type: number_integer
+    weight: 7
+    region: content
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+  links:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  flag_email_node: true
+  flag_subscribe_node: true

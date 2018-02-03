@@ -1,0 +1,8 @@
+uuid: 174c1a44-88da-48b6-8f6f-43b5dbcff9fe
+langcode: en
+status: true
+dependencies: {  }
+id: views_block__kanban_block_2_2
+theme: block__clean
+text: ''
+classes: ''

@@ -1,0 +1,28 @@
+uuid: c2a52572-e676-4a27-8e99-289d2f3f3338
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collaborative
+id: collaborative-admin
+label: Admin
+weight: 100
+internal: false
+audience: member
+group_type: collaborative
+permissions_ui: true
+permissions:
+  - 'administer group'
+  - 'edit group'
+  - 'administer members'
+  - 'view group_membership content'
+  - 'view group'
+  - 'access group_node overview'
+  - 'create group_node:issue entity'
+  - 'update any group_node:issue entity'
+  - 'update own group_node:issue entity'
+  - 'view group_node:issue entity'
+  - 'view unpublished group_node:issue entity'
+  - 'create group_node:issue content'
+  - 'update any group_node:issue content'
+  - 'view group_node:issue content'

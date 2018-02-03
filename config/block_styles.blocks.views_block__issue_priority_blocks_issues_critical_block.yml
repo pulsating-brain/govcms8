@@ -1,0 +1,8 @@
+uuid: 0c3ee1e6-be6e-47c6-997b-c20ea6f2e773
+langcode: en
+status: true
+dependencies: {  }
+id: views_block__issue_priority_blocks_issues_critical_block
+theme: ''
+text: ''
+classes: ''

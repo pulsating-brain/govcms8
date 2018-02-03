@@ -1,0 +1,20 @@
+uuid: 0a45d8da-edfb-44f8-9b48-f7e5a1a6a671
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_change_request_number
+field_name: field_change_request_number
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

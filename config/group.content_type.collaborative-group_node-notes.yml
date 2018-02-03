@@ -1,0 +1,19 @@
+uuid: e875053d-3eab-4a1f-af3c-92502330f13d
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collaborative
+    - node.type.notes
+  module:
+    - gnode
+    - node
+id: collaborative-group_node-notes
+label: 'Collaborative: Group node (Notes)'
+description: 'Adds <em class="placeholder">Notes</em> content to groups both publicly and privately.'
+group_type: collaborative
+content_plugin: 'group_node:notes'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

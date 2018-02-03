@@ -1,0 +1,36 @@
+uuid: 506c072c-182b-4959-b536-92212a997df3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.simplenews_issue.body
+    - node.type.simplenews_issue
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: 2uFXyR4335F9Qrls0Lx2QTobeBiF6FN1PeDjJEv47Yw
+id: node.simplenews_issue.default
+targetEntityType: node
+bundle: simplenews_issue
+mode: default
+content:
+  body:
+    type: text_default
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_email_node:
+    weight: 10
+    region: content
+  flag_subscribe_node:
+    weight: 10
+    region: content
+  links:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

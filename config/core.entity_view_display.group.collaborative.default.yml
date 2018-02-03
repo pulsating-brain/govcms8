@@ -1,0 +1,33 @@
+uuid: 9164c801-399d-4662-a50b-ec629751cff6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.collaborative.field_description
+    - group.type.collaborative
+  module:
+    - text
+id: group.collaborative.default
+targetEntityType: group
+bundle: collaborative
+mode: default
+content:
+  field_description:
+    weight: -4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  label:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  changed: true
+  created: true
+  uid: true

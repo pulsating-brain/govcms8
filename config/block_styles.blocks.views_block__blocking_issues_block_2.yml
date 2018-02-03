@@ -1,0 +1,8 @@
+uuid: ef474f55-3e77-48ac-abcc-0e2eaf70644b
+langcode: en
+status: true
+dependencies: {  }
+id: views_block__blocking_issues_block_2
+theme: ''
+text: ''
+classes: ''

@@ -1,0 +1,17 @@
+uuid: bd2df1c8-9a3e-427d-8d23-0c50dd281687
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Article
+type: article
+description: 'Comprehensive coverage of a particular topic'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: true

@@ -1,0 +1,27 @@
+uuid: cd00ecfd-3e9a-406a-a647-b9d38def11b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.issue_comment
+    - field.storage.comment.field_files
+  module:
+    - file
+id: comment.issue_comment.field_files
+field_name: field_files
+entity_type: comment
+bundle: issue_comment
+label: Files
+description: 'Please add files here. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf xlsx docx pptx png jpg jpeg'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

@@ -1,0 +1,9 @@
+uuid: 020b91d1-7b67-4bfa-b406-c8bc82da7c1b
+langcode: en
+status: true
+dependencies: {  }
+name: Workplace
+vid: workplace
+description: 'The user''s main workplace'
+hierarchy: 0
+weight: 0

@@ -1,0 +1,9 @@
+uuid: d825b154-c404-472c-bff2-d79999176496
+langcode: en
+status: true
+dependencies: {  }
+name: Priority
+vid: priority
+description: 'Level of urgency'
+hierarchy: 0
+weight: 0

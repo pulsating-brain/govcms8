@@ -1,0 +1,12 @@
+uuid: 39be70a0-4282-498c-84bc-a5a63a810de4
+langcode: en
+status: true
+dependencies: {  }
+id: physical_locations
+label: Location
+description: 'Group to handle people working in physical locations. People and services are mapped to locations. '
+creator_roles:
+  - physical_locations-admin
+  - physical_locations-location_admi
+creator_membership: true
+creator_wizard: true

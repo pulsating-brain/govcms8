@@ -1,0 +1,17 @@
+uuid: a7546cd3-b6db-4422-bf3a-d46e05f51910
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Notes
+type: notes
+description: 'Brief notes'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: true

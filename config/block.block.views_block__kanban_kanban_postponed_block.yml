@@ -1,0 +1,25 @@
+uuid: 5861e599-ded7-43ec-b633-66662f8ecc46
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.kanban
+  module:
+    - views
+  theme:
+    - bartik
+id: views_block__kanban_kanban_postponed_block
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:kanban-kanban_postponed_block'
+settings:
+  id: 'views_block:kanban-kanban_postponed_block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

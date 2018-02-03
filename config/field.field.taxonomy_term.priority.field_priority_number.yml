@@ -1,0 +1,23 @@
+uuid: f8455879-014a-463c-9936-1daeb8992dac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_priority_number
+    - taxonomy.vocabulary.priority
+id: taxonomy_term.priority.field_priority_number
+field_name: field_priority_number
+entity_type: taxonomy_term
+bundle: priority
+label: 'Priority Number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

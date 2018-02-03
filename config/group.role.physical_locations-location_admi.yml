@@ -1,0 +1,14 @@
+uuid: 21653b43-57a2-4f24-ab83-e013822e4d56
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.physical_locations
+id: physical_locations-location_admi
+label: 'Location Admin'
+weight: 101
+internal: false
+audience: member
+group_type: physical_locations
+permissions_ui: true
+permissions: {  }

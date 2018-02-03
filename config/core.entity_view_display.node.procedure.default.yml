@@ -1,0 +1,32 @@
+uuid: 4c1dc561-c8ea-4c67-9457-53754061bb34
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.procedure.body
+    - node.type.procedure
+  module:
+    - text
+    - user
+id: node.procedure.default
+targetEntityType: node
+bundle: procedure
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_email_node:
+    weight: 10
+    region: content
+  flag_subscribe_node:
+    weight: 10
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

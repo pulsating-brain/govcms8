@@ -1,0 +1,8 @@
+uuid: be0b9cfd-0197-4f51-bd09-934e3534494b
+langcode: en
+status: true
+dependencies: {  }
+id: about-us
+label: 'About Us'
+description: 'The ''About Us'' links that appear in the rightmost footer'
+locked: false

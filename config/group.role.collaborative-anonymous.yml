@@ -1,0 +1,14 @@
+uuid: 68338407-b7fe-441c-a430-83ddb5b0b68f
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.collaborative
+id: collaborative-anonymous
+label: Anonymous
+weight: -102
+internal: true
+audience: anonymous
+group_type: collaborative
+permissions_ui: true
+permissions: {  }

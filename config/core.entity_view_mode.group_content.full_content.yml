@@ -1,0 +1,10 @@
+uuid: d28654ad-6e51-4888-9d6d-be088d37ba05
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group_content.full_content
+label: 'Full Content'
+targetEntityType: group_content
+cache: true

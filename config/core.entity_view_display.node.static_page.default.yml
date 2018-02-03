@@ -1,0 +1,26 @@
+uuid: d1d94adb-3d4c-472e-ac59-aaac7ed25b08
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.static_page.field_page_content
+    - node.type.static_page
+  module:
+    - text
+    - user
+id: node.static_page.default
+targetEntityType: node
+bundle: static_page
+mode: default
+content:
+  field_page_content:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

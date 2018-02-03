@@ -1,0 +1,25 @@
+uuid: 51b07766-128c-4f67-bee2-835da0c16f86
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.kanban
+  module:
+    - views
+  theme:
+    - bartik
+id: views_block__kanban_kanban_needs_work_block
+theme: bartik
+region: sidebar_second
+weight: -3
+provider: null
+plugin: 'views_block:kanban-kanban_needs_work_block'
+settings:
+  id: 'views_block:kanban-kanban_needs_work_block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

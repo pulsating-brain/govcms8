@@ -1,0 +1,32 @@
+uuid: 082c2279-a868-4f1d-bf2f-8ef41a3abdad
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.physical_locations
+id: physical_locations-admin
+label: Admin
+weight: 100
+internal: false
+audience: member
+group_type: physical_locations
+permissions_ui: true
+permissions:
+  0: 'access content overview'
+  1: 'administer group'
+  2: 'delete group'
+  3: 'edit group'
+  4: 'administer members'
+  5: 'update own group_membership content'
+  6: 'leave group'
+  7: 'view group_membership content'
+  8: 'view group'
+  9: 'access group_node overview'
+  20: 'delete any group_node:issue entity'
+  21: 'update any group_node:issue entity'
+  22: 'view group_node:issue entity'
+  23: 'view unpublished group_node:issue entity'
+  24: 'create group_node:issue content'
+  25: 'delete any group_node:issue content'
+  26: 'update any group_node:issue content'
+  27: 'view group_node:issue content'

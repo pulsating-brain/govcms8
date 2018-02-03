@@ -1,0 +1,18 @@
+uuid: 1f71d7ad-9494-4f38-b070-02b444993be3
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - about-us
+    parent: 'about-us:'
+name: 'Static Page'
+type: static_page
+description: 'Static site content pages. One example is the "About Us" Page'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,8 @@
+uuid: dad58de2-876e-4e64-a683-c8219a0dfe36
+langcode: en
+status: true
+dependencies: {  }
+id: views_block__kanban_kanban_postponed_block
+theme: ''
+text: ''
+classes: ''

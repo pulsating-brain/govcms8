@@ -1,0 +1,11 @@
+uuid: d460b736-2c8f-4dd6-a4dd-5df6aff259e4
+langcode: en
+status: true
+dependencies: {  }
+id: collaborative
+label: Workgroup
+description: 'Workgroups for collaborating on various areas of interest'
+creator_roles:
+  - collaborative-admin
+creator_membership: true
+creator_wizard: true

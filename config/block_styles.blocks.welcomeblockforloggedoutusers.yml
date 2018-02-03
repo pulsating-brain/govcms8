@@ -1,0 +1,8 @@
+uuid: bcc43ba3-99ac-4bf1-9f1a-7a4424354505
+langcode: en
+status: true
+dependencies: {  }
+id: welcomeblockforloggedoutusers
+theme: ''
+text: ''
+classes: ''
