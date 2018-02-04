@@ -18,21 +18,19 @@ Build:
 
 Staging:
   stage: deploy
-  services:
-    - docker:dind
-  environment:
-    name: staging
-    url: https://staging.webcaptioner.com
   script:
-    - source scripts/deploy.sh
+  - docker_tag_push $CI_BUILD_SHA staging
+  - docker_cloud service redeploy --sync staging.deployment-demo
+  except:
+  - master
+  environment: staging
+
 
 Production:
   stage: deploy
-  services:
-    - docker:dind
-  environment:
-    name: production
-    url: https://webcaptioner.com
   script:
-    - source scripts/deploy.sh
-  when: manual
+  - docker_tag_push $CI_BUILD_SHA production
+  - docker_cloud service redeploy --sync production.deployment-demo
+  only:
+  - master
+  environment: production
