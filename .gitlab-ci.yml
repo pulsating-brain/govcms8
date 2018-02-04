@@ -19,7 +19,7 @@ Build:
 Staging:
   stage: deploy
   script:
-  - docker_tag_push $CI_BUILD_SHA staging
+  - docker_tag push $CI_BUILD_SHA staging
   - docker_cloud service redeploy --sync staging.deployment-demo
   except:
   - master
