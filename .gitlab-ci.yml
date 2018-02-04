@@ -1,13 +1,38 @@
-stages:
-  - build
+image: docker:latest
 
-phpunit:
-  image: markfuller/govcms8
-  script:
-    - cd /var/www/html
-    - composer update --dev
-    - composer require phpunit/phpunit
-    - cd docroot/core
-    - ../../bin/phpunit --testsuite=unit
+services:
+- docker:dind
+
+stages:
+- build
+- deploy
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
+
+Build:
   stage: build
-    
+  script:
+    - docker build --pull -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+
+Staging:
+  stage: deploy
+  services:
+    - docker:dind
+  environment:
+    name: staging
+    url: https://staging.webcaptioner.com
+  script:
+    - source scripts/deploy.sh
+
+Production:
+  stage: deploy
+  services:
+    - docker:dind
+  environment:
+    name: production
+    url: https://webcaptioner.com
+  script:
+    - source scripts/deploy.sh
+  when: manual
