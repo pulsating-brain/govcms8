@@ -15,26 +15,25 @@ ENV BUILD_DEPS=" \
   make \
   musl-dev"
 
-RUN apk update && apk add  \
-  --no-cache \
-  ${BUILD_DEPS} \
-  # see https://github.com/smebberson/docker-alpine/blob/master/alpine-apache/Dockerfile
-  apache2 \
-  apache2-utils \
-  bash \
-  bzip2-dev \
-  git \
-  jpeg-dev \
-  libpng-dev \
-  libpq \
-  openrc \
-  unzip \
-  mysql-client \
+RUN apk update \
+  && apk add  \
+    --no-cache \
+    ${BUILD_DEPS} \
+    apache2 \
+    apache2-utils \
+    bash \
+    bzip2-dev \
+    git \
+    jpeg-dev \
+    libpng-dev \
+    libpq \
+    unzip \
+    mysql-client \
   && docker-php-ext-configure \
     gd \
     --with-png-dir=/usr \
     --with-jpeg-dir=/usr \
-  && docker-php-ext-install \
+    && docker-php-ext-install \
     bz2 \
     gd \
     mbstring \
@@ -42,23 +41,26 @@ RUN apk update && apk add  \
     pcntl \
     pdo_mysql \
     zip \
-    # Clean Up
-    && apk del ${BUILD_DEPS}
-    # TODO cleanup build files
+  # Clean Up
+  && apk del ${BUILD_DEPS} \
+  && docker-php-source delete
+
+WORKDIR /var/www
 
 RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir=/usr/local/bin --filename=composer" \
   && chmod a+x /usr/local/bin/composer \
-  && mkdir /var/www/.composer \
-  && chown www-data:www-data /var/www/.composer \
-  && mkdir /var/www/privately-uploaded-files \
-  && mkdir /var/www/publicly-uploaded-files \
-  && chown www-data:www-data /var/www/privately-uploaded-files \
-  && chown www-data:www-data /var/www/publicly-uploaded-files
-
-RUN chown www-data:www-data /var/www/html
+  && mkdir \
+    .composer \
+    privately-uploaded-files \
+    publicly-uploaded-files \
+  && chown --recursive --verbose www-data:www-data \
+    .composer \
+    privately-uploaded-files \
+    publicly-uploaded-files \
+    html
 
 USER www-data
-WORKDIR /var/www
+
 RUN composer create-project \
   --stability alpha \
   --prefer-dist \
@@ -68,10 +70,6 @@ RUN composer create-project \
   html \
   # TODO minimise permissions
   && chmod -R a+w html/docroot/sites/default
-
-ADD settings.php html/docroot/sites/default/
-ADD config html/config/
-ADD httpd.conf /etc/apache2/httpd.conf
 
 WORKDIR /var/www/html
 RUN composer require \
@@ -96,6 +94,8 @@ RUN composer require \
     drupal/charts:3.0.0-alpha7 \
     drupal/bibcite:1.0.0-alpha4
 
+ADD settings.php html/docroot/sites/default/
+ADD config html/config/
+ADD httpd.conf /etc/apache2/httpd.conf
+
 EXPOSE 80
-USER root
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
