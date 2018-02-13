@@ -40,7 +40,7 @@ RUN apk update \
     opcache \
     pcntl \
     pdo_mysql \
-    php7-apache2 \
+    php5-apache2 \
     zip \
   # Clean Up
   && apk del ${BUILD_DEPS} \
