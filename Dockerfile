@@ -70,7 +70,7 @@ RUN composer create-project \
   govcms/govcms8-project \
   /var/www/html \
   # TODO minimise permissions
-  && chmod -R a+w html/docroot/sites/default
+  && chmod -R a+w /var/www/html/docroot/sites/default
 
 RUN composer require \
     --prefer-stable \
