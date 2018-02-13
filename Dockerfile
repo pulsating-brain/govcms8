@@ -19,8 +19,6 @@ RUN apk update \
   && apk add  \
     --no-cache \
     ${BUILD_DEPS} \
-    apache2 \
-    apache2-utils \
     bash \
     bzip2-dev \
     git \
@@ -41,7 +39,6 @@ RUN apk update \
     pcntl \
     pdo_mysql \
     zip \
-  # Clean Up
   && apk del ${BUILD_DEPS} \
   && docker-php-source delete
 
@@ -101,6 +98,5 @@ RUN composer require \
 
 ADD settings.php docroot/sites/default/
 ADD config config/
-ADD httpd.conf /etc/apache2/httpd.conf
 
 EXPOSE 80
