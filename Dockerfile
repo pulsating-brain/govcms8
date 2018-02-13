@@ -27,6 +27,7 @@ RUN apk update \
     jpeg-dev \
     libpng-dev \
     libpq \
+    php5-apache2 \
     unzip \
     mysql-client \
   && docker-php-ext-configure \
@@ -40,7 +41,6 @@ RUN apk update \
     opcache \
     pcntl \
     pdo_mysql \
-    php5-apache2 \
     zip \
   # Clean Up
   && apk del ${BUILD_DEPS} \
