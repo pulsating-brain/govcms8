@@ -95,8 +95,8 @@ RUN composer require \
     drupal/bibcite:1.0.0-alpha5 \
     drupal/linkit:^5.0
 
-ADD settings.php html/docroot/sites/default/
-ADD config html/config/
+ADD settings.php docroot/sites/default/
+ADD config config/
 ADD httpd.conf /etc/apache2/httpd.conf
 
 EXPOSE 80
