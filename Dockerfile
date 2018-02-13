@@ -27,7 +27,7 @@ RUN apk update \
     jpeg-dev \
     libpng-dev \
     libpq \
-    php5-apache2 \
+    php7-apache2 \
     unzip \
     mysql-client \
   && docker-php-ext-configure \
