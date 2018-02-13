@@ -19,7 +19,7 @@ RUN apk update \
   && apk add  \
     --no-cache \
     ${BUILD_DEPS} \
-    apache2-proxy \
+    apache2 \
     apache2-utils \
     bash \
     bzip2-dev \
@@ -40,6 +40,7 @@ RUN apk update \
     opcache \
     pcntl \
     pdo_mysql \
+    php7-apache2 \
     zip \
   # Clean Up
   && apk del ${BUILD_DEPS} \
