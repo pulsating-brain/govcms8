@@ -60,24 +60,24 @@ RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir
     html
 
 USER www-data
+WORKDIR /var/www/html
 
 RUN composer create-project \
-  --stability alpha \
+  --stability dev \
   --prefer-dist \
   --no-progress \
   --no-dev \
   govcms/govcms8-project \
-  html \
+  /var/www/html \
   # TODO minimise permissions
   && chmod -R a+w html/docroot/sites/default
 
-WORKDIR /var/www/html
 RUN composer require \
     --prefer-stable \
     --prefer-dist \
     --no-progress \
     --update-no-dev \
-    drupal/geocoder:2.0.0-beta1 \
+    drupal/geocoder:2.0.0-beta2 \
     drupal/address:~1.0 \
     # Groups RC1 06-2017 - Kristiaan released a big patch early 2018 but group content edit and delete routes don't work
     drupal/group:1.0.0-rc1 \
@@ -92,7 +92,8 @@ RUN composer require \
     drupal/telephone_validation:~2.0 \
     drupal/social_api:2.0.0-beta3 \
     drupal/charts:3.0.0-alpha7 \
-    drupal/bibcite:1.0.0-alpha4
+    drupal/bibcite:1.0.0-alpha5 \
+    drupal/linkit:^5.0
 
 ADD settings.php html/docroot/sites/default/
 ADD config html/config/
