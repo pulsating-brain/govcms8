@@ -61,6 +61,8 @@ RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir
     html
 
 RUN echo "LoadModule slotmem_shm_module modules/mod_slotmem_shm.so" > /etc/apache2/conf.d/slotmem_shm.conf
+RUN ln -sf /dev/stdout /var/log/apache2/access.log
+RUN ln -sf /dev/stderr /var/log/apache2/error.log
 
 USER www-data
 WORKDIR /var/www/html
