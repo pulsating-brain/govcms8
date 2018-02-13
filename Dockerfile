@@ -59,6 +59,9 @@ RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir
     publicly-uploaded-files \
     html
 
+RUN touch /etc/apache2/conf.d/slotmem_shm.conf \
+  && echo "LoadModule slotmem_shm_module modules/mod_slotmem_shm.so" > /etc/apache2/conf.d/slotmem_shm.conf
+
 USER www-data
 WORKDIR /var/www/html
 
@@ -98,8 +101,5 @@ RUN composer require \
 ADD settings.php docroot/sites/default/
 ADD config config/
 ADD httpd.conf /etc/apache2/httpd.conf
-
-RUN touch /etc/apache2/conf.d/slotmem_shm.conf \
-  && echo "LoadModule slotmem_shm_module modules/mod_slotmem_shm.so" > /etc/apache2/conf.d/slotmem_shm.conf
 
 EXPOSE 80
