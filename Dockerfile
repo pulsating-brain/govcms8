@@ -95,4 +95,4 @@ RUN composer require \
 ADD settings.php docroot/sites/default/
 ADD config config/
 
-EXPOSE 80
+EXPOSE 9000
