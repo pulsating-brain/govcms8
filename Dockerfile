@@ -93,5 +93,5 @@ RUN composer require \
 
 ADD settings.php docroot/sites/default/
 ADD config config/
-
+USER root
 EXPOSE 9000
