@@ -2,7 +2,6 @@
 # Roadmap: https://github.com/drush-ops/drush/issues/2528  See:  https://www.drupal.org/requirements/php#drupalversions
 FROM php:7.1-fpm-alpine
 
-ENV APACHE_DOCUMENT_ROOT /var/www/html/docroot
 ENV COMPOSER_PROCESS_TIMEOUT 900
 ENV TIMEZONE Australia/Sydney
 
