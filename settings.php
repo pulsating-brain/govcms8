@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUndefinedNamespaceInspection */
 
 /**
  * @file
@@ -41,7 +41,7 @@ $databases['default']['default'] = array (
  * Location of the site configuration files.
  *
  * The $config_directories array specifies the location of file system
- * directories used for configuration data. On install, the "sync" directory is
+ * directories used for configuration db-data. On install, the "sync" directory is
  * created. This is used for configuration imports. The "active" directory is
  * not created by default since the default storage for active configuration is
  * the database rather than the file system. (This can be changed. See "Active
@@ -161,6 +161,8 @@ $settings['allow_authorize_operations'] = FALSE;
 /**
  * Load services definition file.
  */
+/** @noinspection PhpUndefinedVariableInspection */
+/** @noinspection PhpUndefinedVariableInspection */
 $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 
 /**

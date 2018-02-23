@@ -4,9 +4,7 @@ services:
 - docker:dind
 
 stages:
-- test
 - build
-- deploy
 
 before_script:
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
