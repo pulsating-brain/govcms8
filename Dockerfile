@@ -52,8 +52,7 @@ RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir
     private \
   && chown --recursive --verbose www-data:www-data \
     .composer \
-    private \
-    html
+    private
 
 USER www-data
 WORKDIR /var/www/html
