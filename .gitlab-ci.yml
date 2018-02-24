@@ -1,5 +1,8 @@
 image: docker:latest
-
+stages:
+  - build
+  - test
+  - deploy
 services:
    - docker:dind
 
@@ -15,21 +18,19 @@ build:
    stage: build
    script:
    - docker build -t $IMAGE_TAG .
-   - docker save $IMAGE_TAG -o image.tar
-   cache:
-     key: image
-     paths:
-     - image.tar
+
+test:
+  image: $IMAGE_TAG
+  stage: test
+  script:
+    - composer global require drush/drush:7.*
+    - composer global require drupal/coder
+    - export PATH="$PATH:/var/www/html/vendor/bin"
+    - phpcs --config-set installed_paths /var/www/html/vendor/drupal/coder/coder_sniffer
 
 deploy:
    stage: deploy
    script:
-   - docker load -i image.tar
    - docker push $IMAGE_TAG
-   cache:
-     key: image
-     paths:
-     - image.tar
-     policy: pull
    only:
    - master
