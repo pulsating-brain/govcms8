@@ -56,9 +56,7 @@ $databases['default']['default'] = array (
  * array key CONFIG_ACTIVE_DIRECTORY.
  */
 $config_directories = array(
-  /**
-   * CONFIG_SYNC_DIRECTORY => '/directory/outside/webroot',
-   */
+   CONFIG_SYNC_DIRECTORY => '/var/www/html/config',
 );
 
 /**

@@ -92,5 +92,7 @@ RUN composer require \
 
 ADD settings.php docroot/sites/default/
 ADD config config/
+RUN chown --recursive --verbose www-data:www-data config
+
 USER root
-EXPOSE 9000
+
