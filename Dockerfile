@@ -94,14 +94,12 @@ RUN composer require \
     drupal/social_api:2.0.0-beta3 \
     drupal/telephone_validation:~2.0
 
-
-
 ADD settings.php docroot/sites/default/
 ADD config config/
-RUN mkdir config/sync
 RUN chmod og-w docroot/sites/default/settings.php
 
 USER root
+RUN mkdir config/sync
 RUN chown --recursive --verbose www-data:www-data config
 
 
