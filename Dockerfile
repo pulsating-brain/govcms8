@@ -98,8 +98,8 @@ RUN composer require \
 
 ADD settings.php docroot/sites/default/
 ADD config config/
-RUN mkdir config/sync \
-    && chmod og-w docroot/sites/default/settings.php
+RUN mkdir config/sync
+RUN chmod og-w docroot/sites/default/settings.php
 
 USER root
 RUN chown --recursive --verbose www-data:www-data config
