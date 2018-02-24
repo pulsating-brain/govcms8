@@ -1,13 +1,26 @@
 image: docker:latest
 
 services:
-- docker:dind
+  - docker:dind
 
 stages:
-- build
+  - test
+  - build
 
 before_script:
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
+  - composer global require drush/drush:7.*
+  - composer global require drupal/coder
+  - export PATH="$PATH:/var/www/html/vendor/bin"
+  - phpcs --config-set installed_paths /var/www/html/vendor/drupal/coder/coder_sniffer
+
+test:
+  stage: test
+  script:
+    - phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme ./
+  stage: test
+  tags:
+    - drupal
 
 build:
   stage: build
