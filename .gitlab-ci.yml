@@ -10,7 +10,7 @@ stages:
 
 setup:
   stage: setup
-  host-restriction: host1
+  host_restriction: host1
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
     - composer global require drush/drush:7.*
@@ -20,7 +20,7 @@ setup:
 
 test:
   stage: test
-  host-restriction: host1
+  host_restriction: host1
   script:
     - phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme ./
   stage: test
