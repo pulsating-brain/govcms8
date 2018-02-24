@@ -23,7 +23,6 @@ test:
   host_restriction: host1
   script:
     - phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme ./
-  stage: test
 
 push:
   stage: push
