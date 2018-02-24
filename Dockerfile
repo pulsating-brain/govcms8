@@ -62,7 +62,7 @@ RUN composer create-project \
   --prefer-dist \
   --no-progress \
   --no-dev \
-  govcms/govcms8-project:1.0.0-alpha4 \
+  govcms/govcms8-project \
   /var/www/html \
   # TODO minimise permissions
   && chmod -R a+w /var/www/html/docroot/sites/default
