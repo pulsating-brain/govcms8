@@ -96,11 +96,11 @@ RUN composer require \
 
 ADD settings.php docroot/sites/default/
 ADD config config/
-RUN chmod og-w docroot/sites/default/settings.php
 
 USER root
 RUN mkdir config/sync
 RUN chown --recursive --verbose www-data:www-data config
+RUN chmod og-w docroot/sites/default/settings.php
 
 
 
