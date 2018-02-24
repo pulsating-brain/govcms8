@@ -49,12 +49,10 @@ RUN bash -c "curl -sS 'https://getcomposer.org/installer' | php -- --install-dir
   && chmod a+x /usr/local/bin/composer \
   && mkdir \
     .composer \
-    privately-uploaded-files \
-    publicly-uploaded-files \
+    private \
   && chown --recursive --verbose www-data:www-data \
     .composer \
-    privately-uploaded-files \
-    publicly-uploaded-files \
+    private \
     html
 
 USER www-data
