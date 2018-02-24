@@ -72,23 +72,29 @@ RUN composer require \
     --prefer-dist \
     --no-progress \
     --update-no-dev \
-    drupal/geocoder:2.0.0-beta2 \
     drupal/address:~1.0 \
+    drupal/api_key_manager:~1.0 \
+    drupal/backup_migrate \
+    drupal/bibcite:1.0.0-alpha5 \
+    drupal/block_styles \
+    drupal/charts:3.0.0-alpha7 \
+    drupal/clamav \
+    drupal/diff \
     # Groups RC1 06-2017 - Kristiaan released a big patch early 2018 but group content edit and delete routes don't work
     drupal/group:1.0.0-rc1 \
+    drupal/geocoder:2.0.0-beta2 \
     # Geofield seems ready for a beta or RC to me
     drupal/geofield:1.0.0-alpha5 \
     drupal/geofield_map:~1.0 \
+    drupal/linkit:^5.0 \
     # Realname RC 05-2017 - There's a core issue holding a further release. It works but doesn't display real names in
     # all places yet. See https://www.drupal.org/project/drupal/issues/2629286.
     drupal/realname:1.0.0-rc1\
     drupal/restui:~1.0 \
-    drupal/api_key_manager:~1.0 \
-    drupal/telephone_validation:~2.0 \
     drupal/social_api:2.0.0-beta3 \
-    drupal/charts:3.0.0-alpha7 \
-    drupal/bibcite:1.0.0-alpha5 \
-    drupal/linkit:^5.0
+    drupal/telephone_validation:~2.0
+
+
 
 ADD settings.php docroot/sites/default/
 ADD config config/

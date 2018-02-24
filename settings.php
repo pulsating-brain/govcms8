@@ -50,14 +50,8 @@ $databases['default']['default'] = array (
  * The default location for the "sync" directory is inside a randomly-named
  * directory in the public files path. The setting below allows you to override
  * the "sync" location.
- *
- * If you use files for the "active" configuration, you can tell the
- * Configuration system where this directory is located by adding an entry with
- * array key CONFIG_ACTIVE_DIRECTORY.
  */
-$config_directories = array(
-   CONFIG_SYNC_DIRECTORY => '/var/www/html/config/sync',
-);
+$config_directories[CONFIG_SYNC_DIRECTORY] = '/var/www/html/config/sync';
 
 /**
  * Site-specific settings:
@@ -106,26 +100,6 @@ $settings['file_public_path'] = 'sites/default/files';
  * about securing private files.
  */
 $settings['file_private_path'] = '/var/www/private';
-
-/**
- * Active configuration settings.
- *
- * By default, the active configuration is stored in the database in the
- * {config} table. To use a different storage mechanism for the active
- * configuration, do the following prior to installing:
- * - Create an "active" directory and declare its path in $config_directories
- *   as explained under the 'Location of the site configuration files' section
- *   above in this file. To enhance security, you can declare a path that is
- *   outside your document root.
- * - Override the 'bootstrap_config_storage' setting here. It must be set to a
- *   callable that returns an object that implements
- *   \Drupal\Core\Config\StorageInterface.
- * - Override the service definition 'config.storage.active'. Put this
- *   override in a services.yml file in the same directory as settings.php
- *   (definitions in this file will override service definition defaults).
- */
-# TODO configure config file storage
-# $settings['bootstrap_config_storage'] = array('Drupal\Core\Config\BootstrapConfigStorageFactory', 'getFileStorage');
 
 /**
  * Configuration overrides.
@@ -228,4 +202,3 @@ $settings['entity_update_batch_size'] = 50;
 # }
 
 $settings['install_profile'] = 'govcms';
-$config_directories['sync'] = 'sites/default/files/config_Mwu8sF24q_iBxjNZVTTRqYziwMc3js0dGtmxLYM57QjRHBEcWvEDwLniaXzEzw5_EyEM5pvJkA/sync';
