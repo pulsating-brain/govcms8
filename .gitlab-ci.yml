@@ -1,32 +1,35 @@
 image: docker:latest
 
 services:
-  - docker:dind
+   - docker:dind
 
-stages:
-  - setup
-  - test
-  - push
+variables:
+   DOCKER_DRIVER: overlay2
+   APP: govcms8
+   IMAGE_TAG: registry.gitlab.com/markf/$APP
 
-setup:
-  stage: setup
-  host_restriction: host1
-  script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
-    - composer global require drush/drush:7.*
-    - composer global require drupal/coder
-    - export PATH="$PATH:/var/www/html/vendor/bin"
-    - phpcs --config-set installed_paths /var/www/html/vendor/drupal/coder/coder_sniffer
+before_script:
+   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
 
-test:
-  stage: test
-  host_restriction: host1
-  script:
-    - phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme ./
+build:
+   stage: build
+   script:
+   - docker build -t $IMAGE_TAG .
+   - docker save $IMAGE_TAG -o image.tar
+   cache:
+     key: image
+     paths:
+     - image.tar
 
-push:
-  stage: push
-  script:
-    - docker build --pull -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME .
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
-
+deploy:
+   stage: deploy
+   script:
+   - docker load -i image.tar
+   - docker push $IMAGE_TAG
+   cache:
+     key: image
+     paths:
+     - image.tar
+     policy: pull
+   only:
+   - master
