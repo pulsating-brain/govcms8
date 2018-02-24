@@ -4,23 +4,28 @@ services:
   - docker:dind
 
 stages:
+  - setup
   - test
-  - build
+  - push
 
-before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
-  - composer global require drush/drush:7.*
-  - composer global require drupal/coder
-  - export PATH="$PATH:/var/www/html/vendor/bin"
-  - phpcs --config-set installed_paths /var/www/html/vendor/drupal/coder/coder_sniffer
+setup:
+  stage: setup
+  host-restriction: host1
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
+    - composer global require drush/drush:7.*
+    - composer global require drupal/coder
+    - export PATH="$PATH:/var/www/html/vendor/bin"
+    - phpcs --config-set installed_paths /var/www/html/vendor/drupal/coder/coder_sniffer
 
 test:
   stage: test
+  host-restriction: host1
   script:
     - phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme ./
   stage: test
 
-build:
+push:
   stage: build
   script:
     - docker build --pull -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME .
