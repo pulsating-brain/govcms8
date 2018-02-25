@@ -23,14 +23,14 @@ test:
   image: $IMAGE_TAG:master
   stage: test
   script:
-    - composer global require drush/drush:7.*
-    - composer global require drupal/coder
-    - export PATH="$PATH:/var/www/html/vendor/bin"
-    - phpcs --config-set installed_paths /var/www/html/vendor/drupal/coder/coder_sniffer
+    - docker composer global require drush/drush:7.*
+    - docker composer global require drupal/coder
+    - docker export PATH="$PATH:/var/www/html/vendor/bin"
+    - docker phpcs --config-set installed_paths /var/www/html/vendor/drupal/coder/coder_sniffer
 
 deploy:
    stage: deploy
    script:
-   - docker push $IMAGE_TAG
+   - docker push $IMAGE_TAG:master
    only:
    - master
