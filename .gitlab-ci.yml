@@ -20,7 +20,7 @@ build:
    - docker build -t $IMAGE_TAG .
 
 test:
-  image: $IMAGE_TAG
+  image: $IMAGE_TAG:master
   stage: test
   script:
     - composer global require drush/drush:7.*
