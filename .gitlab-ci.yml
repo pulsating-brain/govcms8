@@ -25,7 +25,8 @@ deploy-staging:
    - docker push $IMAGE_TAG:master
    environment:
      name: staging
-   only: master
+   only:
+   - master
 
 deploy-production:
    stage: deploy
@@ -35,4 +36,5 @@ deploy-production:
    environment:
      name: production
    when: manual
-   only: production
+   only:
+   - production
