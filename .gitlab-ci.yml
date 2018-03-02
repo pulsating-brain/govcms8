@@ -1,7 +1,6 @@
 image: docker:latest
 stages:
   - build
-  - test
   - deploy
 # see: http://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
 variables:
@@ -15,20 +14,25 @@ before_script:
 build:
    stage: build
    script:
+   - echo "Building Docker image ..."
    - docker build -t $IMAGE_TAG .
 
-test:
-  image: $IMAGE_TAG:master
-  stage: test
-  script:
-    - docker composer global require drush/drush:7.*
-    - docker composer global require drupal/coder
-    - docker export PATH="$PATH:/var/www/html/vendor/bin"
-    - docker phpcs --config-set installed_paths /var/www/html/vendor/drupal/coder/coder_sniffer
 
-deploy:
+deploy-staging:
    stage: deploy
    script:
+   - echo "Push to master branch repository on Gitlab ..."
    - docker push $IMAGE_TAG:master
-   only:
-   - master
+   environment:
+     name: staging
+   only: master
+
+deploy-production:
+   stage: deploy
+   script:
+   - echo "Push to PRODUCTION branch on Docker Cloud"
+   - docker push
+   environment:
+     name: production
+   when: manual
+   only: production
