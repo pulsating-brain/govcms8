@@ -21,7 +21,7 @@ build:
 deploy-staging:
    stage: deploy
    script:
-   - echo "Push to master branch repository on Gitlab ..."
+   - echo "Pushing to master branch repository on Gitlab."
    - docker push $IMAGE_TAG:master
    environment:
      name: staging
@@ -31,8 +31,8 @@ deploy-staging:
 deploy-production:
    stage: deploy
    script:
-   - echo "Push to PRODUCTION branch on Docker Cloud"
-   - docker push
+   - echo "Pushing to PRODUCTION repository on Docker Cloud"
+   - docker push # TODO
    environment:
      name: production
    when: manual
