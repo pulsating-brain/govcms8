@@ -13,7 +13,7 @@ variables:
   CONTAINER_RELEASE_IMAGE: registry.gitlab.com/plenum/webserver-image:latest
 
 before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.example.com
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
 
 build:
   stage: build
