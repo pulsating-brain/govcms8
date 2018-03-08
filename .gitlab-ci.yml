@@ -5,8 +5,7 @@ stages:
 # see: http://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
 variables:
    DOCKER_DRIVER: overlay2
-   APP: govcms8
-   IMAGE_TAG: registry.gitlab.com/markf/$APP
+   REPO: registry.gitlab.com/plenum/webserver-image
 
 before_script:
    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
@@ -15,14 +14,14 @@ build:
    stage: build
    script:
    - echo "Building Docker image ..."
-   - docker build -t $IMAGE_TAG .
+   - docker build -t $REPO .
 
 
 deploy-staging:
    stage: deploy
    script:
-   - echo "Pushing to master branch repository on Gitlab."
-   - docker push $IMAGE_TAG:master
+   - echo "Pushing to master branch on Gitlab."
+   - docker push $REPO:master
    environment:
      name: staging
    only:
@@ -31,8 +30,8 @@ deploy-staging:
 deploy-production:
    stage: deploy
    script:
-   - echo "Pushing to PRODUCTION repository on Docker Cloud"
-   - docker push # TODO
+   - echo "Push to production branch on Gitlab"
+   - docker push $REPO:production
    environment:
      name: production
    when: manual
