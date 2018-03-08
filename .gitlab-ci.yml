@@ -2,7 +2,7 @@ image: docker:latest
 stages:
   - build
   - deploy
-# see: http://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
+
 variables:
    DOCKER_DRIVER: overlay2
    REPO: registry.gitlab.com/plenum/webserver-image
@@ -15,7 +15,6 @@ build:
    script:
    - echo "Building Docker image ..."
    - docker build -t $REPO .
-
 
 deploy-staging:
    stage: deploy
