@@ -3,10 +3,6 @@ stages:
   - build
   - deploy
 
-variables:
-   DOCKER_DRIVER: overlay2
-   REPO: registry.gitlab.com/plenum/webserver-image
-
 before_script:
    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
 
@@ -14,7 +10,8 @@ build:
    stage: build
    script:
    - echo "Building Docker image ..."
-   - docker build -t $REPO .
+   - docker build --pull -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME .
+   - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
 
 deploy-staging:
    stage: deploy
