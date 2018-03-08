@@ -83,9 +83,8 @@ RUN composer require \
     # Groups RC1 06-2017 - Kristiaan released a big patch early 2018 but group content edit and delete routes don't work
     drupal/group:1.0.0-rc2 \
     drupal/geocoder:2.0.0-beta2 \
-    drupal/geofield:1.0.0-beta2 \
+    drupal/geofield:1.0.0-beta3 \
     drupal/geofield_map:~1.0 \
-    drupal/linkit:^5.0 \
     # Realname RC 05-2017 - There's a core issue holding a further release. It works but doesn't display real names in
     # all places yet. See https://www.drupal.org/project/drupal/issues/2629286.
     drupal/realname:1.0.0-rc1\
