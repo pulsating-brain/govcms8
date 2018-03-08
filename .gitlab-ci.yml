@@ -1,35 +1,51 @@
 image: docker:latest
+services:
+- docker:dind
+
 stages:
-  - build
-  - deploy
+- build
+- test
+- release
+- deploy
+
+variables:
+  CONTAINER_TEST_IMAGE: registry.gitlab.com/plenum/webserver-image:$CI_COMMIT_REF_NAME
+  CONTAINER_RELEASE_IMAGE: registry.gitlab.com/plenum/webserver-image:latest
 
 before_script:
-   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.example.com
 
 build:
-   stage: build
-   script:
-   - echo "Building Docker image ..."
-   - docker build --pull -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME .
-   - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+  stage: build
+  script:
+    - docker build --pull -t $CONTAINER_TEST_IMAGE .
+    - docker push $CONTAINER_TEST_IMAGE
 
-deploy-staging:
-   stage: deploy
-   script:
-   - echo "Pushing to master branch on Gitlab."
-   - docker push $REPO:master
-   environment:
-     name: staging
-   only:
-   - master
+test1:
+  stage: test
+  script:
+    - docker pull $CONTAINER_TEST_IMAGE
+    - docker run $CONTAINER_TEST_IMAGE /script/to/run/tests
+    -
 
-deploy-production:
-   stage: deploy
-   script:
-   - echo "Push to production branch on Gitlab"
-   - docker push $REPO:production
-   environment:
-     name: production
-   when: manual
-   only:
-   - production
+test2:
+  stage: test
+  script:
+    - docker pull $CONTAINER_TEST_IMAGE
+    - docker run $CONTAINER_TEST_IMAGE /script/to/run/another/test
+
+release-image:
+  stage: release
+  script:
+    - docker pull $CONTAINER_TEST_IMAGE
+    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+    - docker push $CONTAINER_RELEASE_IMAGE
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  script:
+    - ./deploy.sh
+  only:
+    - master
