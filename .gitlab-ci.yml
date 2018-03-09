@@ -26,11 +26,7 @@ phpunit:
   script:
     - whoami && docker info
     - docker pull $CONTAINER_TEST_IMAGE
-    - docker exec -t $CONTAINER_TEST_IMAGE \
-      su -c \
-      '~www-data/html/tests/scripts/unit-testing.sh' \
-      -s /bin/bash \
-      www-data
+    - docker run $CONTAINER_TEST_IMAGE '~www-data/html/tests/scripts/unit-testing.sh'
 
 release-image:
   stage: release
