@@ -10,7 +10,7 @@ stages:
 
 variables:
   CONTAINER_TEST_IMAGE: registry.gitlab.com/plenum/webserver-image:$CI_COMMIT_REF_NAME
-  CONTAINER_RELEASE_IMAGE: registry.gitlab.com/plenum/webserver-image:latest
+  CONTAINER_RELEASE_IMAGE: registry.gitlab.com/plenum/webserver-image:production
 
 before_script:
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
@@ -21,17 +21,16 @@ build:
     - docker build --pull -t $CONTAINER_TEST_IMAGE .
     - docker push $CONTAINER_TEST_IMAGE
 
-test1:
+phpunit:
   stage: test
   script:
+    - whoami && docker info && docker-compose -v
     - docker pull $CONTAINER_TEST_IMAGE
-    - docker run $CONTAINER_TEST_IMAGE /script/to/run/tests
-
-test2:
-  stage: test
-  script:
-    - docker pull $CONTAINER_TEST_IMAGE
-    - docker run $CONTAINER_TEST_IMAGE /script/to/run/another/test
+    - docker exec -t $CONTAINER_TEST_IMAGE \
+      su -c \
+      '~www-data/html/tests/scripts/unit-testing.sh' \
+      -s /bin/bash \
+      www-data
 
 release-image:
   stage: release
