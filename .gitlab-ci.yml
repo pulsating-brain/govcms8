@@ -26,7 +26,9 @@ phpunit:
   script:
     - whoami && docker info
     - docker pull $CONTAINER_TEST_IMAGE
-    - docker run $CONTAINER_TEST_IMAGE '~www-data/html/tests/scripts/unit-testing.sh'
+    - docker stack deploy -c docker-compose.yml teststack
+    # see https://www.drupal.org/docs/8/phpunit/running-phpunit-tests
+    - docker exec teststack_www 'docroot/core/tests/scripts/unit-testing.sh'
 
 release-image:
   stage: release
