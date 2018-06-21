@@ -12,14 +12,12 @@
  * @see example.sites.php
  * @see \Drupal\Core\DrupalKernel::getSitePath()
  *
- * In addition to customizing application settings through variables in
- * settings.php, you can create a services.yml file in the same directory to
- * register custom, site-specific service definitions and/or swap out default
- * implementations with custom ones.
+ *
  */
 
 /**
  * Database settings:
+ * TODO database will be created as part of container stack
  */
 
 $databases['default']['default'] = array (
@@ -51,7 +49,7 @@ $databases['default']['default'] = array (
  * directory in the public files path. The setting below allows you to override
  * the "sync" location.
  */
-$config_directories[CONFIG_SYNC_DIRECTORY] = '/var/www/html/config/sync';
+$config_directories[CONFIG_SYNC_DIRECTORY] = '/var/www/html/docroot/config/sync';
 
 /**
  * Site-specific settings:
@@ -74,6 +72,7 @@ $settings['update_free_access'] = FALSE;
 /**
  * Disable website code updates through Drupal's Update Manager module - we
  * build production images and sequentially roll them out after testing
+ * TODO set this up - we're building containers not updating production code
  */
 $settings['allow_authorize_operations'] = FALSE;
 
@@ -83,6 +82,7 @@ $settings['allow_authorize_operations'] = FALSE;
  * A local file system path where public files will be stored. This directory
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
+ * TODO setup public file path
  */
 $settings['file_public_path'] = 'sites/default/files';
 
@@ -98,6 +98,7 @@ $settings['file_public_path'] = 'sites/default/files';
  *
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
+ * TODO setup private path
  */
 $settings['file_private_path'] = '/var/www/private';
 
@@ -122,6 +123,7 @@ $settings['file_private_path'] = '/var/www/private';
  * a way that is not config override aware. Also, note that changing
  * configuration values in settings.php will not fire any of the configuration
  * change events.
+ * TODO dynamically change and/or set site variables
  */
 # $config['system.file']['path']['temporary'] = '/tmp';
 # $config['system.site']['name'] = 'My Drupal site';
@@ -130,6 +132,10 @@ $settings['file_private_path'] = '/var/www/private';
 
 /**
  * Load services definition file.
+ * TODO what's a services definition file
+ * create a services.yml file in the same directory as  * settings.php to
+ * register custom, site-specific service definitions and/or swap out default
+ * implementations with custom ones.
  */
 /** @noinspection PhpUndefinedVariableInspection */
 /** @noinspection PhpUndefinedVariableInspection */
@@ -175,6 +181,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
+ * TODO check this
  */
 $settings['file_scan_ignore_directories'] = [
   'node_modules',
@@ -195,6 +202,7 @@ $settings['entity_update_batch_size'] = 50;
  * other things that should not happen on development and testing sites.
  *
  * Keep this code block at the end of this file to take full effect.
+ * TODO set this
  */
 #
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
