@@ -100,5 +100,5 @@ RUN mkdir config/sync
 RUN chown --recursive --verbose www-data:www-data config
 RUN chmod og-w docroot/sites/default/settings.php
 
-
+EXPOSE 5000
 
